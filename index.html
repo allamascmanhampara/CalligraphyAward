@@ -6,17 +6,16 @@
 <title>Nuqtah Award 2026 · Allama S.C.</title>
 
 <link rel="stylesheet" href="style.css">
-
-<!-- Modern UI font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<section class="landing">
+<!-- LANDING -->
+<section id="landing" class="landing visible">
   <div class="glass-card animate-in">
 
-    <img src="allama-logo.png" alt="Allama S.C. Logo" class="logo">
+    <img src="allama-logo.png" class="logo" alt="Allama S.C. Logo">
 
     <h1>
       Nuqtah<br>
@@ -28,12 +27,25 @@
       Arabic Calligraphy Awards
     </p>
 
-    <button class="cta">
+    <button class="cta" onclick="showResults()">
       View Results
     </button>
 
   </div>
 </section>
 
+<!-- RESULTS (EMPTY FOR NOW) -->
+<section id="results" class="results hidden">
+  <div class="results-header">
+    <h2>Competition Results</h2>
+    <p>Official Jury Evaluation</p>
+  </div>
+
+  <div class="placeholder-card">
+    Results will be revealed here.
+  </div>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
