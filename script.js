@@ -1,19 +1,70 @@
-const entries = [
-  {e:"B",t:46,m:"🥇 First Place",w:true,c:"Outstanding balance and spiritual depth."},
-  {e:"A",t:40,m:"🥈 Second Place",w:true,c:"Elegant structure and disciplined strokes."},
-  {e:"C",t:40,m:"🥈 Second Place",w:true,c:"Strong movement with confident flow."},
-  {e:"E",t:37,m:"🥉 Third Place",w:true,c:"Balanced form with expressive clarity."},
-  {e:"H",t:37,m:"🥉 Third Place",w:true,c:"Creative use of space and rhythm."},
+const data = [
+  // 🥇 FIRST
+  {
+    entry: "B",
+    total: 46,
+    award: "🥇 First Place",
+    badge: "gold",
+    winner: true,
+    image: "B.png",
+    scores: [9, 10, 9, 9, 9],
+    comment: "Outstanding balance, depth, and spiritual presence."
+  },
 
-  {e:"J",t:38,c:"Graceful execution with refined control."},
-  {e:"I",t:35,c:"Clear readability with calm composition."},
-  {e:"M",t:34,c:"Energetic strokes, needs consistency."},
-  {e:"F",t:33,c:"Dynamic form with scope for balance."},
-  {e:"L",t:33,c:"Dense structure, expressive intent."},
-  {e:"K",t:32,c:"Bold strokes, needs proportion control."},
-  {e:"N",t:32,c:"Modern feel with decorative quality."},
-  {e:"D",t:30,c:"Simple and sincere execution."},
-  {e:"G",t:31,c:"Minimalist approach with elegance."}
+  // 🥈 SECOND (JOINT)
+  {
+    entry: "A",
+    total: 40,
+    award: "🥈 Second Place",
+    badge: "silver",
+    winner: true,
+    image: "A.png",
+    scores: [8, 8, 8, 8, 8],
+    comment: "Elegant structure with disciplined strokes."
+  },
+  {
+    entry: "C",
+    total: 40,
+    award: "🥈 Second Place",
+    badge: "silver",
+    winner: true,
+    image: "C.png",
+    scores: [9, 9, 8, 8, 6],
+    comment: "Strong movement and confident composition."
+  },
+
+  // 🥉 THIRD (JOINT)
+  {
+    entry: "E",
+    total: 37,
+    award: "🥉 Third Place",
+    badge: "bronze",
+    winner: true,
+    image: "E.png",
+    scores: [8, 8, 7, 7, 7],
+    comment: "Balanced form with expressive clarity."
+  },
+  {
+    entry: "H",
+    total: 37,
+    award: "🥉 Third Place",
+    badge: "bronze",
+    winner: true,
+    image: "H.png",
+    scores: [8, 8, 7, 7, 7],
+    comment: "Creative use of space and rhythm."
+  },
+
+  // OTHERS
+  { entry:"J", total:38, image:"J.png", scores:[8,8,8,7,7], comment:"Graceful execution with refined control." },
+  { entry:"I", total:35, image:"I.png", scores:[7,7,8,6,7], comment:"Clear readability with calm composition." },
+  { entry:"M", total:34, image:"M.png", scores:[7,7,6,7,7], comment:"Energetic strokes, needs consistency." },
+  { entry:"F", total:33, image:"F.png", scores:[7,7,6,7,6], comment:"Dynamic form with scope for balance." },
+  { entry:"L", total:33, image:"L.png", scores:[7,7,6,7,6], comment:"Dense structure, expressive intent." },
+  { entry:"K", total:32, image:"K.png", scores:[7,6,6,7,6], comment:"Bold strokes, needs proportional control." },
+  { entry:"N", total:32, image:"N.png", scores:[6,7,6,7,6], comment:"Modern feel with decorative quality." },
+  { entry:"D", total:30, image:"D.png", scores:[6,6,7,5,6], comment:"Simple and sincere execution." },
+  { entry:"G", total:31, image:"G.png", scores:[6,6,7,6,6], comment:"Minimalist approach with elegance." }
 ];
 
 const criteria = [
@@ -26,54 +77,55 @@ const criteria = [
 
 const cards = document.getElementById("cards");
 
-function render(filter) {
+/* RENDER */
+function render(filter = "all") {
   cards.innerHTML = "";
-  entries
-    .filter(x => filter === "all" || x.w)
-    .forEach(x => {
-      const c = document.createElement("div");
-      c.className = "card" + (x.w ? " winner" : "");
-      c.innerHTML = `
-        <h3>${x.m ? `<span class="medal">${x.m}</span><br>` : ""}
-        Entry ${x.e} · ${x.t}/50</h3>
 
-        <img src="${x.e}.png">
+  data
+    .filter(d => filter === "all" || d.winner)
+    .forEach(item => {
+      const card = document.createElement("div");
+      card.className = "card" + (item.winner ? " winner" : "");
 
-        <button>View marking</button>
+      card.innerHTML = `
+        <div class="top">
+          <div>
+            <div class="entry">Entry ${item.entry}</div>
+            ${item.award ? `<div class="badge ${item.badge}">${item.award}</div>` : ""}
+          </div>
+          <div class="score">${item.total}</div>
+        </div>
+
+        <div class="artwork">
+          <img src="${item.image}" alt="Calligraphy Entry ${item.entry}" loading="lazy">
+        </div>
+
+        <button class="view">View detailed marking</button>
 
         <div class="details">
-          ${criteria.map(k=>`${k}: <strong>/10</strong>`).join("<br>")}
-          <p><strong>Jury note:</strong> ${x.c}</p>
+          ${criteria.map((c,i)=>`
+            <div class="row">
+              <span>${c}</span>
+              <span>${item.scores[i]}/10</span>
+            </div>
+          `).join("")}
+          <p><strong>Jury note:</strong> ${item.comment}</p>
         </div>
       `;
 
-      const btn = c.querySelector("button");
-      const d = c.querySelector(".details");
+      const btn = card.querySelector(".view");
+      const details = card.querySelector(".details");
 
       btn.onclick = () => {
-        d.style.display = d.style.display === "block" ? "none" : "block";
-        btn.textContent = d.style.display === "block" ? "Hide marking" : "View marking";
+        details.classList.toggle("open");
+        btn.textContent = details.classList.contains("open")
+          ? "Hide details"
+          : "View detailed marking";
       };
 
-      cards.appendChild(c);
+      cards.appendChild(card);
     });
 }
 
-function showResults() {
-  document.querySelector(".landing").style.display = "none";
-  document.getElementById("nav").classList.remove("hidden");
-  document.getElementById("results").classList.remove("hidden");
-  document.getElementById("jury").classList.remove("hidden");
-  render("winners");
-}
-
-function switchTab(t) {
-  document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));
-  event.target.classList.add("active");
-  render(t);
-}
-
-function toggleTheme() {
-  document.body.classList.toggle("dark");
-  document.body.classList.toggle("light");
-}
+/* INITIAL LOAD */
+render();
