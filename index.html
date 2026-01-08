@@ -11,50 +11,47 @@
 
 <body>
 
-<!-- LANDING -->
-<section id="landing" class="landing visible">
-  <div class="glass-card animate-in">
-
-    <img src="allama-logo.png" class="logo" alt="Allama S.C. Logo">
-
-    <h1>
-      Nuqtah<br>
-      Award&nbsp;2026
-    </h1>
-
-    <p class="subtitle">
-      Allama S.C.<br>
-      Arabic Calligraphy Awards
-    </p>
-
-    <button class="cta" onclick="showResults()">View Results</button>
-
+<!-- LANDING VIEW -->
+<section id="landing" class="view active">
+  <div class="glass-card">
+    <img src="allama-logo.png" class="logo" alt="Allama S.C.">
+    <h1>Nuqtah Award<br>2026</h1>
+    <p>Allama S.C.<br>Arabic Calligraphy Competition</p>
+    <button onclick="openResults()">View Results</button>
   </div>
 </section>
 
-<!-- RESULTS -->
-<section id="results" class="results hidden">
-
-  <div class="results-header">
+<!-- RESULTS VIEW -->
+<section id="results" class="view">
+  <header class="results-header">
     <h2>Competition Results</h2>
     <p>Official Jury Evaluation</p>
-  </div>
 
-  <!-- TABS -->
-  <div class="tabs">
-    <button class="tab active" onclick="switchTab('winners')">🏆 Winners</button>
-    <button class="tab" onclick="switchTab('full')">📋 Full List</button>
-  </div>
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('winners')">🏆 Winners</button>
+      <button class="tab" onclick="switchTab('all')">📋 Full List</button>
+    </div>
+  </header>
 
-  <!-- CONTENT -->
-  <div id="winners" class="tab-content visible">
-    <div class="placeholder-card">Winner entries will appear here.</div>
-  </div>
+  <main id="cards"></main>
 
-  <div id="full" class="tab-content hidden">
-    <div class="placeholder-card">All entries (A–N) will appear here.</div>
-  </div>
+  <section class="jury">
+    <div class="jury-card">
+      <img src="jury.png" alt="Jury">
+      <h3>Khaleelullah Chemnad</h3>
+      <span>Chief Jury · Arabic Calligraphy</span>
+      <p>
+        Each artwork reflected sincerity, discipline, and artistic devotion.
+        The diversity of approaches made the Nuqtah Award 2026 a meaningful
+        celebration of calligraphy.
+      </p>
+    </div>
 
+    <p class="thanks">
+      Allama S.C. thanks all participants and supporters for making
+      the Nuqtah Award 2026 a memorable success.
+    </p>
+  </section>
 </section>
 
 <script src="script.js"></script>
