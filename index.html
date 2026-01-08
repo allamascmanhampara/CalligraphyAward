@@ -9,60 +9,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 
-<body class="dark">
+<body>
 
-<!-- LANDING -->
 <section class="landing">
-  <img src="allama-logo.png" class="logo" alt="Allama S.C. Logo">
-  <h1>Nuqtah Award 2026</h1>
-  <p>Allama S.C. · Arabic Calligraphy Competition</p>
+  <div class="glass-card animate-in">
 
-  <div class="actions">
-    <button onclick="showResults()">View Results</button>
-    <button class="toggle" onclick="toggleTheme()">🌙</button>
-  </div>
-</section>
+    <img src="allama-logo.png" alt="Allama S.C. Logo" class="logo">
 
-<!-- NAV TABS -->
-<div id="nav" class="hidden">
-  <button class="tab active" onclick="switchTab('winners')">🏆 Winners</button>
-  <button class="tab" onclick="switchTab('all')">📋 Full List</button>
-</div>
+    <h1>Nuqtah Award 2026</h1>
 
-<!-- RESULTS -->
-<section id="results" class="hidden">
-  <header>
-    <h1>Arabic Calligraphy Competition</h1>
-    <p>Official Jury Results & Detailed Evaluation</p>
-  </header>
-
-  <main id="cards"></main>
-</section>
-
-<!-- JURY MESSAGE -->
-<section id="jury" class="hidden">
-  <div class="jury-card">
-    <img src="jury.png" alt="Jury">
-    <h3>Khaleelullah Chemnad</h3>
-    <span>Chief Jury · Arabic Calligraphy</span>
-    <p>
-      Every artwork reflected sincerity and dedication.
-      The diversity of styles and approaches made this
-      competition meaningful and inspiring.
+    <p class="subtitle">
+      Allama S.C.<br>
+      Arabic Calligraphy Competition
     </p>
-  </div>
 
-  <p class="thanks">
-    With gratitude, <strong>Allama S.C.</strong> thanks all participants,
-    coordinators, and supporters for making the
-    <strong>Nuqtah Award 2026</strong> a memorable success.
-  </p>
+    <button class="cta">
+      View Results
+    </button>
+
+  </div>
 </section>
 
-<footer>
-  © Allama S.C. · Nuqtah Award 2026
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>
