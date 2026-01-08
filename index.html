@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuqtah Award 2026 · Allama S.C.</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="dark">
+
+<!-- LANDING -->
+<section class="landing">
+  <img src="allama-logo.png" class="logo" alt="Allama S.C.">
+  <h1>Nuqtah Award 2026</h1>
+  <p>Allama S.C. · Arabic Calligraphy Competition</p>
+
+  <div class="actions">
+    <button onclick="showResults()">View Results</button>
+    <button class="toggle" onclick="toggleTheme()">🌙</button>
+  </div>
+</section>
+
+<!-- NAV -->
+<div id="nav" class="hidden">
+  <button class="tab active" onclick="switchTab('winners')">🏆 Winners</button>
+  <button class="tab" onclick="switchTab('all')">📋 Full List</button>
+</div>
+
+<!-- RESULTS -->
+<section id="results" class="hidden">
+  <div id="cards"></div>
+</section>
+
+<!-- JURY -->
+<section id="jury" class="hidden">
+  <div class="jury-card">
+    <img src="jury.png" alt="Jury">
+    <h3>Ustadh Ahmad Basheer</h3>
+    <span>Chief Jury · Arabic Calligraphy</span>
+    <p>
+      Each entry reflected sincere effort and devotion.
+      While styles differed, the intention behind every work
+      was deeply appreciable. May this art continue to inspire hearts.
+    </p>
+  </div>
+
+  <p class="thanks">
+    With gratitude, <strong>Allama S.C.</strong> thanks all artists,
+    volunteers, and supporters for making the Nuqtah Award 2026
+    a meaningful and memorable celebration of calligraphy.
+  </p>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
