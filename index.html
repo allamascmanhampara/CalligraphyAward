@@ -27,23 +27,34 @@
       Arabic Calligraphy Awards
     </p>
 
-    <button class="cta" onclick="showResults()">
-      View Results
-    </button>
+    <button class="cta" onclick="showResults()">View Results</button>
 
   </div>
 </section>
 
-<!-- RESULTS (EMPTY FOR NOW) -->
+<!-- RESULTS -->
 <section id="results" class="results hidden">
+
   <div class="results-header">
     <h2>Competition Results</h2>
     <p>Official Jury Evaluation</p>
   </div>
 
-  <div class="placeholder-card">
-    Results will be revealed here.
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('winners')">🏆 Winners</button>
+    <button class="tab" onclick="switchTab('full')">📋 Full List</button>
   </div>
+
+  <!-- CONTENT -->
+  <div id="winners" class="tab-content visible">
+    <div class="placeholder-card">Winner entries will appear here.</div>
+  </div>
+
+  <div id="full" class="tab-content hidden">
+    <div class="placeholder-card">All entries (A–N) will appear here.</div>
+  </div>
+
 </section>
 
 <script src="script.js"></script>
