@@ -7,21 +7,21 @@ const criteria=[
 ];
 
 const data=[
-  {name:"Thasleema",score:46,w:true,order:1,award:"🥇 First Place",marks:[9,10,9,9,9],note:"An outstanding work displaying mastery, balance, and spiritual depth."},
-  {name:"Fathimath Shuhaiba Falila",score:40,w:true,order:2,award:"🥈 Second Place",marks:[9,9,8,8,6],note:"Dynamic rhythm and expressive movement with strong artistic intent."},
-  {name:"Sauda",score:40,w:true,order:3,award:"🥈 Second Place",marks:[8,8,8,8,8],note:"Elegant and disciplined composition with consistent proportions."},
-  {name:"Sayyedath Ayshath Noufabi",score:37,w:true,order:4,award:"🥉 Third Place",marks:[8,8,7,7,7],note:"Balanced and readable with calm visual harmony."},
-  {name:"Fathimath Raihana",score:37,w:true,order:5,award:"🥉 Third Place",marks:[8,8,7,7,7],note:"Creative spacing and thoughtful rhythm throughout."},
+  {name:"Thasleema",img:"B.png",score:46,w:true,order:1,award:"🥇 First Place",marks:[9,10,9,9,9],note:"An outstanding work displaying mastery, balance, and spiritual depth."},
+  {name:"Fathimath Shuhaiba Falila",img:"C.png",score:40,w:true,order:2,award:"🥈 Second Place",marks:[9,9,8,8,6],note:"Dynamic rhythm and expressive movement with strong artistic intent."},
+  {name:"Sauda",img:"A.png",score:40,w:true,order:3,award:"🥈 Second Place",marks:[8,8,8,8,8],note:"Elegant and disciplined composition with consistent proportions."},
+  {name:"Sayyedath Ayshath Noufabi",img:"E.png",score:37,w:true,order:4,award:"🥉 Third Place",marks:[8,8,7,7,7],note:"Balanced and readable with calm visual harmony."},
+  {name:"Fathimath Raihana",img:"H.png",score:37,w:true,order:5,award:"🥉 Third Place",marks:[8,8,7,7,7],note:"Creative spacing and thoughtful rhythm throughout."},
 
-  {name:"Mohammed Mahroof",score:38,w:false,marks:[8,8,8,7,7],note:"Graceful execution with refined control."},
-  {name:"Fathimath Jafna",score:35,w:false,marks:[7,7,8,6,7],note:"Clear readability and calm structure."},
-  {name:"Fidha Fathima",score:34,w:false,marks:[7,7,6,7,7],note:"Energetic strokes with expressive intent."},
-  {name:"Muhammed Ajeer",score:33,w:false,marks:[7,7,6,7,6],note:"Dynamic form with scope for balance improvement."},
-  {name:"Jasmina",score:33,w:false,marks:[7,7,6,7,6],note:"Dense composition needing refined spacing."},
-  {name:"Ayishath Shamna",score:32,w:false,marks:[7,6,6,7,6],note:"Bold gestures and confident strokes."},
-  {name:"Ayishath Husna",score:32,w:false,marks:[6,7,6,7,6],note:"Decorative approach with creative exploration."},
-  {name:"Fathima",score:30,w:false,marks:[6,6,7,5,6],note:"Simple and sincere presentation."},
-  {name:"Rashid",score:31,w:false,marks:[6,6,7,6,6],note:"Minimalist elegance through restraint."}
+  {name:"Mohammed Mahroof",img:"J.png",score:38,w:false,marks:[8,8,8,7,7],note:"Graceful execution with refined control."},
+  {name:"Fathimath Jafna",img:"I.png",score:35,w:false,marks:[7,7,8,6,7],note:"Clear readability and calm structure."},
+  {name:"Fidha Fathima",img:"M.png",score:34,w:false,marks:[7,7,6,7,7],note:"Energetic strokes with expressive intent."},
+  {name:"Muhammed Ajeer",img:"F.png",score:33,w:false,marks:[7,7,6,7,6],note:"Dynamic form with scope for balance improvement."},
+  {name:"Jasmina",img:"L.png",score:33,w:false,marks:[7,7,6,7,6],note:"Dense composition needing refined spacing."},
+  {name:"Ayishath Shamna",img:"K.png",score:32,w:false,marks:[7,6,6,7,6],note:"Bold gestures and confident strokes."},
+  {name:"Ayishath Husna",img:"N.png",score:32,w:false,marks:[6,7,6,7,6],note:"Decorative approach with creative exploration."},
+  {name:"Fathima",img:"D.png",score:30,w:false,marks:[6,6,7,5,6],note:"Simple and sincere presentation."},
+  {name:"Rashid",img:"G.png",score:31,w:false,marks:[6,6,7,6,6],note:"Minimalist elegance through restraint."}
 ];
 
 const cards=document.getElementById("cards");
@@ -46,6 +46,7 @@ function render(filter){
     .forEach(d=>{
       const card=document.createElement("div");
       card.className="card"+(d.w?" winner":"");
+
       card.innerHTML=`
         <div class="top">
           <div>
@@ -53,6 +54,10 @@ function render(filter){
             ${d.award?`<div class="badge">${d.award}</div>`:""}
           </div>
           <div class="score">${d.score}</div>
+        </div>
+
+        <div class="artwork">
+          <img src="${d.img}" alt="${d.name}">
         </div>
 
         <button class="view">View score details</button>
