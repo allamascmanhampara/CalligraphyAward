@@ -8,29 +8,32 @@
     --gold: #FFD700;
     --silver: #C0C0C0;
     --bronze: #CD7F32;
-    --glass-bg: rgba(255, 255, 255, 0.08);
-    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.12);
     --dark-bg: #0a0a0a;
-    --text-light: rgba(255, 255, 255, 0.9);
-    --text-muted: rgba(255, 255, 255, 0.6);
+    --text-light: rgba(255, 255, 255, 0.95);
+    --text-muted: rgba(255, 255, 255, 0.65);
+    --card-hover: rgba(255, 255, 255, 0.08);
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: var(--dark-bg);
     color: var(--text-light);
     line-height: 1.6;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Glassmorphism Card */
 .glass-card {
     background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
 }
 
 /* Landing Page */
@@ -51,63 +54,62 @@ body {
 .landing-background {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%);
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1010 50%, #0a0a0a 100%);
     overflow: hidden;
 }
 
 .gradient-orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.4;
-    animation: float 20s ease-in-out infinite;
+    filter: blur(100px);
+    opacity: 0.3;
+    animation: float 25s ease-in-out infinite;
 }
 
 .orb-1 {
-    width: 320px;
-    height: 320px;
+    width: 400px;
+    height: 400px;
     background: radial-gradient(circle, #d4af37 0%, transparent 70%);
-    top: -10%;
-    left: -10%;
-    animation-delay: 0s;
+    top: -15%;
+    left: -15%;
 }
 
 .orb-2 {
-    width: 320px;
-    height: 320px;
+    width: 400px;
+    height: 400px;
     background: radial-gradient(circle, #cd7f32 0%, transparent 70%);
-    bottom: -10%;
-    right: -10%;
-    animation-delay: 5s;
+    bottom: -15%;
+    right: -15%;
+    animation-delay: 8s;
 }
 
 .orb-3 {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
     background: radial-gradient(circle, #8b4513 0%, transparent 70%);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation-delay: 10s;
+    animation-delay: 15s;
 }
 
 @keyframes float {
     0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(30px, -30px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
+    33% { transform: translate(40px, -40px) scale(1.15); }
+    66% { transform: translate(-30px, 30px) scale(0.85); }
 }
 
 .landing-content {
     position: relative;
     z-index: 10;
     text-align: center;
-    max-width: 800px;
+    max-width: 900px;
 }
 
 .logo-container {
     position: relative;
     display: inline-block;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .landing-logo {
@@ -119,39 +121,39 @@ body {
     backdrop-filter: blur(20px);
     padding: 20px;
     border: 2px solid var(--glass-border);
-    box-shadow: 0 8px 32px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 20px 60px rgba(212, 175, 55, 0.25);
     position: relative;
     z-index: 2;
-    animation: logoFloat 3s ease-in-out infinite;
+    animation: logoFloat 4s ease-in-out infinite;
 }
 
 @keyframes logoFloat {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-15px); }
 }
 
 .logo-glow {
     position: absolute;
-    inset: -20px;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
+    inset: -30px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, transparent 70%);
     border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
+    animation: pulse 3s ease-in-out infinite;
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 0.5; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.1); }
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
 }
 
 .landing-title {
-    font-family: 'Delirian Script', serif;
-    font-size: 4em;
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5em;
     font-weight: 900;
-    margin-bottom: 30px;
-    line-height: 1.2;
+    margin-bottom: 40px;
+    line-height: 1.1;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 }
 
 .title-word {
@@ -161,21 +163,21 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradientShift 3s ease infinite;
-    text-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
-    letter-spacing: 8px;
+    animation: gradientShift 4s ease infinite;
+    text-shadow: 0 0 60px rgba(255, 215, 0, 0.3);
+    letter-spacing: 12px;
 }
 
 .title-year {
-    font-size: 0.6em;
-    letter-spacing: 20px;
-    margin-top: 10px;
+    font-size: 0.55em;
+    letter-spacing: 24px;
+    margin-top: 15px;
     background: linear-gradient(90deg, #C0C0C0, #FFFFFF, #C0C0C0);
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradientShift 2s ease infinite;
+    animation: gradientShift 3s ease infinite;
 }
 
 @keyframes gradientShift {
@@ -184,19 +186,19 @@ body {
 }
 
 .landing-subtitle-container {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .landing-subtitle {
-    font-size: 1.4em;
-    letter-spacing: 6px;
+    font-size: 1.3em;
+    letter-spacing: 8px;
     color: var(--text-muted);
-    font-weight: 300;
-    margin-bottom: 15px;
+    font-weight: 400;
+    margin-bottom: 20px;
 }
 
 .subtitle-line {
-    width: 200px;
+    width: 250px;
     height: 2px;
     background: linear-gradient(90deg, transparent, #FFD700, transparent);
     margin: 0 auto;
@@ -208,14 +210,14 @@ body {
     backdrop-filter: blur(20px);
     border: 2px solid var(--glass-border);
     color: var(--text-light);
-    padding: 20px 60px;
-    font-size: 1.2em;
+    padding: 22px 70px;
+    font-size: 1.1em;
     font-weight: 600;
-    border-radius: 50px;
+    border-radius: 60px;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     overflow: hidden;
     z-index: 1;
 }
@@ -224,7 +226,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(205, 127, 50, 0.2));
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(205, 127, 50, 0.15));
     opacity: 0;
     transition: opacity 0.4s ease;
     z-index: -1;
@@ -235,16 +237,16 @@ body {
 }
 
 .view-results-btn:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02);
     border-color: #FFD700;
-    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 15px 50px rgba(255, 215, 0, 0.4);
 }
 
 .btn-glow {
     position: absolute;
     inset: -2px;
-    background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.4), transparent);
-    border-radius: 50px;
+    background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.5), transparent);
+    border-radius: 60px;
     opacity: 0;
     transition: opacity 0.4s;
     pointer-events: none;
@@ -258,8 +260,7 @@ body {
 .results-page {
     display: none;
     min-height: 100vh;
-    padding: 20px;
-    position: relative;
+    padding: 0;
 }
 
 .results-page.active {
@@ -274,256 +275,377 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
+    padding: 20px;
     position: relative;
     z-index: 1;
 }
 
+/* Header */
 .header {
     text-align: center;
-    padding: 30px 20px;
-    margin-bottom: 30px;
+    padding: 40px 20px;
+    margin-bottom: 40px;
 }
 
 .header-glass {
     background: var(--glass-bg);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(24px);
     border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .header-logo {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     object-fit: contain;
-    margin-bottom: 15px;
-    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.3));
 }
 
 .header h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5em;
+    font-size: 3em;
     background: linear-gradient(135deg, #FFD700, #FFA500);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-weight: 900;
 }
 
 .subtitle {
     color: var(--text-muted);
-    font-size: 1.1em;
-    letter-spacing: 2px;
-}
-
-/* Tab Navigation */
-.tab-navigation {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 30px;
-    justify-content: center;
-}
-
-.tab-btn {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    color: var(--text-light);
-    padding: 15px 40px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1em;
-    font-weight: 600;
-}
-
-.tab-icon {
-    width: 20px;
-    height: 20px;
-}
-
-.tab-btn:hover {
-    border-color: #FFD700;
-    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.2);
-}
-
-.tab-btn.active {
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(205, 127, 50, 0.2));
-    border-color: #FFD700;
+    font-size: 1.2em;
+    letter-spacing: 3px;
+    font-weight: 400;
 }
 
 /* Criteria Section */
 .criteria-section {
-    padding: 30px;
-    margin-bottom: 30px;
+    padding: 40px;
+    margin-bottom: 50px;
 }
 
 .criteria-section h2 {
     font-family: 'Playfair Display', serif;
     color: #FFD700;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
     text-align: center;
-    font-size: 2em;
+    font-size: 2.5em;
+    font-weight: 700;
 }
 
 .criteria-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
 }
 
 .criteria-item {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 30px 20px;
+    border-radius: 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    transition: all 0.3s ease;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .criteria-item:hover {
-    background: rgba(255, 215, 0, 0.05);
+    background: rgba(255, 215, 0, 0.06);
     border-color: rgba(255, 215, 0, 0.3);
-    transform: translateY(-5px);
+    transform: translateY(-8px);
 }
 
 .criteria-icon {
-    font-size: 2em;
-    margin-bottom: 5px;
+    font-size: 2.5em;
+    margin-bottom: 10px;
 }
 
 .criteria-item strong {
     color: #FFD700;
-    font-size: 1em;
+    font-size: 1.1em;
+    font-weight: 600;
 }
 
 .criteria-item span {
-    font-size: 0.85em;
+    font-size: 0.9em;
     color: var(--text-muted);
 }
 
-/* Winners Grid */
-.winners-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    margin-bottom: 30px;
+/* Award Categories Section */
+.awards-intro-section {
+    padding: 40px;
+    margin-bottom: 50px;
 }
 
-.winner-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 2px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 30px;
+.awards-intro-section h2 {
+    font-family: 'Playfair Display', serif;
+    color: #FFD700;
+    margin-bottom: 35px;
     text-align: center;
-    transition: all 0.4s ease;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.awards-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.category-badge {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 2px solid;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-badge.first-place {
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+.category-badge.second-place {
+    border-color: rgba(192, 192, 192, 0.3);
+}
+
+.category-badge.third-place {
+    border-color: rgba(205, 127, 50, 0.3);
+}
+
+.category-badge:hover {
+    transform: translateY(-8px);
+}
+
+.category-badge.first-place:hover {
+    background: rgba(255, 215, 0, 0.06);
+    border-color: rgba(255, 215, 0, 0.5);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+}
+
+.category-badge.second-place:hover {
+    background: rgba(192, 192, 192, 0.06);
+    border-color: rgba(192, 192, 192, 0.5);
+    box-shadow: 0 15px 40px rgba(192, 192, 192, 0.2);
+}
+
+.category-badge.third-place:hover {
+    background: rgba(205, 127, 50, 0.06);
+    border-color: rgba(205, 127, 50, 0.5);
+    box-shadow: 0 15px 40px rgba(205, 127, 50, 0.2);
+}
+
+.badge-icon {
+    font-size: 3em;
+}
+
+.badge-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.badge-text strong {
+    font-size: 1.4em;
+    color: var(--text-light);
+    font-weight: 700;
+}
+
+.badge-text span {
+    font-size: 0.95em;
+    color: var(--text-muted);
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 15px;
+}
+
+.divider-line {
+    flex: 0 0 150px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #FFD700, transparent);
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em;
+    font-weight: 700;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    white-space: nowrap;
+}
+
+.section-subtitle {
+    font-size: 1.15em;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+/* Winners Section */
+.winners-section {
+    margin-bottom: 80px;
+}
+
+.winners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 35px;
+}
+
+/* Participants Section */
+.participants-section {
+    margin-bottom: 80px;
+}
+
+.participants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
+}
+
+/* Card Styles (Unified for both winners and participants) */
+.entry-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px);
+    border: 2px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 30px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
 }
 
-.winner-card::before {
+.entry-card::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.03), transparent);
     opacity: 0;
     transition: opacity 0.4s;
 }
 
-.winner-card:hover::before {
+.entry-card:hover::before {
     opacity: 1;
 }
 
-.winner-card:hover {
+.entry-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
 }
 
-.winner-card.first {
+/* Winner Cards */
+.entry-card.first {
     border-color: var(--gold);
 }
 
-.winner-card.second {
+.entry-card.second {
     border-color: var(--silver);
 }
 
-.winner-card.third {
+.entry-card.third {
     border-color: var(--bronze);
 }
 
-.winner-card:hover.first {
-    box-shadow: 0 20px 60px rgba(255, 215, 0, 0.4);
+.entry-card:hover.first {
+    box-shadow: 0 25px 70px rgba(255, 215, 0, 0.4);
 }
 
-.winner-card:hover.second {
-    box-shadow: 0 20px 60px rgba(192, 192, 192, 0.4);
+.entry-card:hover.second {
+    box-shadow: 0 25px 70px rgba(192, 192, 192, 0.4);
 }
 
-.winner-card:hover.third {
-    box-shadow: 0 20px 60px rgba(205, 127, 50, 0.4);
+.entry-card:hover.third {
+    box-shadow: 0 25px 70px rgba(205, 127, 50, 0.4);
 }
 
+/* Award Badge */
 .award-badge {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 20px;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 25px;
     position: relative;
 }
 
-.Medal-icon {
+.medal-icon {
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 5px 15px currentColor);
+    filter: drop-shadow(0 8px 20px currentColor);
 }
 
-.winner-card.first .medal-icon { color: var(--gold); }
-.winner-card.second .medal-icon { color: var(--silver); }
-.winner-card.third .medal-icon { color: var(--bronze); }
+.entry-card.first .medal-icon { color: var(--gold); }
+.entry-card.second .medal-icon { color: var(--silver); }
+.entry-card.third .medal-icon { color: var(--bronze); }
 
 .award-text {
-    font-size: 0.9em;
-    font-weight: 600;
-    margin-top: 10px;
+    font-size: 1em;
+    font-weight: 700;
+    margin-top: 12px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    text-align: center;
 }
 
-.winner-card.first .award-text { color: var(--gold); }
-.winner-card.second .award-text { color: var(--silver); }
-.winner-card.third .award-text { color: var(--bronze); }
+.entry-card.first .award-text { color: var(--gold); }
+.entry-card.second .award-text { color: var(--silver); }
+.entry-card.third .award-text { color: var(--bronze); }
 
-.winner-image {
+/* Entry Header */
+.entry-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.entry-image {
     width: 100%;
-    height: 280px;
+    height: 320px;
     object-fit: contain;
     margin: 20px 0;
-    border-radius: 15px;
-    background: rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.25);
     padding: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease;
 }
 
-.winner-name {
-    font-size: 1.5em;
+.entry-card:hover .entry-image {
+    transform: scale(1.02);
+}
+
+.entry-name {
+    font-size: 1.6em;
     font-weight: 700;
     color: var(--text-light);
     margin: 15px 0;
     font-family: 'Playfair Display', serif;
 }
 
-.winner-score {
-    font-size: 2.5em;
+.entry-score {
+    font-size: 2.8em;
     font-weight: 700;
     background: linear-gradient(135deg, #FFD700, #FFA500);
     -webkit-background-clip: text;
@@ -532,31 +654,33 @@ body {
     margin: 10px 0;
 }
 
+/* View Details Button */
 .view-details-btn {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     color: var(--text-light);
-    padding: 12px 30px;
-    border-radius: 25px;
+    padding: 14px 32px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.9em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.95em;
     font-weight: 600;
-    margin-top: 15px;
+    margin-top: 20px;
+    width: 100%;
 }
 
 .view-details-btn:hover {
     background: rgba(255, 215, 0, 0.1);
     border-color: #FFD700;
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
+/* Entry Details */
 .entry-details {
-    margin-top: 25px;
-    padding-top: 25px;
+    margin-top: 30px;
+    padding-top: 30px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: left;
     display: none;
 }
 
@@ -566,34 +690,49 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
+    from { opacity: 0; transform: translateY(-15px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+.entry-details h3 {
+    color: #FFD700;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: 700;
 }
 
 .detailed-scores {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
-    margin: 20px 0;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
 }
 
 .score-item {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 12px;
-    border-radius: 10px;
+    padding: 18px 15px;
+    border-radius: 16px;
     text-align: center;
+    transition: all 0.3s ease;
+}
+
+.score-item:hover {
+    background: rgba(255, 215, 0, 0.06);
+    border-color: rgba(255, 215, 0, 0.3);
 }
 
 .score-category {
-    font-size: 0.75em;
+    font-size: 0.8em;
     color: var(--text-muted);
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    line-height: 1.4;
 }
 
 .score-value {
-    font-size: 1.6em;
+    font-size: 1.8em;
     font-weight: 700;
     color: #FFD700;
 }
@@ -601,104 +740,35 @@ body {
 .jury-note {
     background: rgba(255, 215, 0, 0.05);
     border: 1px solid rgba(255, 215, 0, 0.2);
-    padding: 20px;
-    border-radius: 12px;
-    margin-top: 20px;
+    padding: 25px;
+    border-radius: 16px;
+    margin-top: 25px;
 }
 
 .jury-note h4 {
     color: #FFD700;
-    margin-bottom: 10px;
-    font-size: 1.1em;
+    margin-bottom: 15px;
+    font-size: 1.15em;
+    font-weight: 700;
 }
 
 .jury-note p {
     color: var(--text-muted);
-    line-height: 1.7;
+    line-height: 1.8;
     font-size: 0.95em;
-}
-
-/* Leaderboard */
-.leaderboard {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.entry-item {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: 15px;
-    padding: 25px;
-    transition: all 0.3s ease;
-}
-
-.entry-item:hover {
-    border-color: rgba(255, 215, 0, 0.5);
-    transform: translateX(10px);
-    box-shadow: 0 5px 25px rgba(255, 215, 0, 0.15);
-}
-
-.entry-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.entry-left {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex: 1;
-}
-
-.entry-image-small {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.entry-name {
-    font-size: 1.3em;
-    font-weight: 600;
-    color: var(--text-light);
-}
-
-.entry-score {
-    text-align: right;
-}
-
-.score-number {
-    font-size: 2.2em;
-    font-weight: 700;
-    background: linear-gradient(135deg, #FFD700, #FFA500);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.score-label {
-    font-size: 0.85em;
-    color: var(--text-muted);
+    text-align: justify;
 }
 
 /* Jury Section */
 .jury-section {
-    padding: 40px;
-    margin: 40px 0;
+    padding: 50px 40px;
+    margin: 60px 0;
 }
 
 .jury-content {
     display: flex;
-    gap: 40px;
-    align-items: start;
+    gap: 50px;
+    align-items: flex-start;
 }
 
 .jury-image-container {
@@ -707,151 +777,191 @@ body {
 }
 
 .jury-image {
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
     border-radius: 50%;
     border: 3px solid rgba(255, 215, 0, 0.5);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 .jury-image-glow {
     position: absolute;
-    inset: -15px;
-    background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+    inset: -20px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.25) 0%, transparent 70%);
     border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
+    animation: pulse 3s ease-in-out infinite;
 }
 
 .jury-text h3 {
     font-family: 'Playfair Display', serif;
     color: #FFD700;
-    font-size: 1.8em;
-    margin-bottom: 20px;
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    font-weight: 700;
 }
 
 .jury-message {
     color: var(--text-muted);
-    line-height: 1.9;
-    margin-bottom: 25px;
+    line-height: 2;
+    margin-bottom: 30px;
     text-align: justify;
+    font-size: 1.05em;
 }
 
 .jury-name {
     color: var(--text-light);
-    font-size: 1.1em;
+    font-size: 1.15em;
 }
 
 .jury-name strong {
     color: #FFD700;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-size: 1.2em;
+    font-weight: 700;
 }
 
 .jury-name span {
     color: var(--text-muted);
-    font-size: 0.9em;
+    font-size: 0.95em;
 }
 
 /* Thanks Section */
 .thanks-section {
-    padding: 50px;
+    padding: 60px 50px;
     text-align: center;
-    margin: 40px 0;
+    margin: 60px 0 40px;
 }
 
 .thanks-logo-container {
     position: relative;
     display: inline-block;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .thanks-logo {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
-    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.4));
 }
 
 .thanks-logo-glow {
     position: absolute;
-    inset: -20px;
+    inset: -25px;
     background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
     border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
+    animation: pulse 3s ease-in-out infinite;
 }
 
 .thanks-section h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5em;
+    font-size: 3em;
     color: #FFD700;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    font-weight: 700;
 }
 
 .thanks-section p {
-    line-height: 1.9;
-    max-width: 800px;
-    margin: 0 auto 25px;
+    line-height: 2;
+    max-width: 900px;
+    margin: 0 auto 30px;
     color: var(--text-muted);
+    font-size: 1.05em;
+    text-align: justify;
 }
 
 .thanks-signature {
     font-style: italic;
-    font-size: 1.2em;
-    margin-top: 30px;
+    font-size: 1.3em;
+    margin-top: 40px;
     color: #FFD700;
+    font-weight: 600;
 }
 
 /* Mobile Responsiveness */
+@media (max-width: 1200px) {
+    .divider-line {
+        flex: 0 0 100px;
+    }
+    
+    .section-title {
+        font-size: 2.3em;
+    }
+}
+
 @media (max-width: 768px) {
     .landing-title {
-        font-size: 2.5em;
+        font-size: 3em;
     }
     
     .title-word {
-        letter-spacing: 4px;
+        letter-spacing: 6px;
+    }
+    
+    .title-year {
+        letter-spacing: 12px;
     }
     
     .landing-logo {
-        width: 320px;
-        height: 320px;
+        width: 250px;
+        height: 250px;
+    }
+    
+    .view-results-btn {
+        padding: 18px 50px;
+        font-size: 1em;
     }
     
     .header h1 {
-        font-size: 1.8em;
+        font-size: 2.2em;
     }
     
-    .tab-navigation {
-        flex-direction: column;
+    .header-logo {
+        width: 70px;
+        height: 70px;
     }
     
-    .tab-btn {
-        width: 100%;
-        justify-content: center;
+    .criteria-section h2,
+    .awards-intro-section h2 {
+        font-size: 2em;
     }
     
     .criteria-grid {
         grid-template-columns: 1fr;
     }
     
-    .winners-grid {
+    .awards-categories {
         grid-template-columns: 1fr;
     }
     
-    .entry-header {
-        flex-direction: column;
-        align-items: flex-start;
+    .section-divider {
+        gap: 15px;
     }
     
-    .entry-score {
-        width: 100%;
-        text-align: left;
+    .divider-line {
+        flex: 0 0 50px;
+    }
+    
+    .section-title {
+        font-size: 1.8em;
+    }
+    
+    .section-subtitle {
+        font-size: 1em;
+    }
+    
+    .winners-grid,
+    .participants-grid {
+        grid-template-columns: 1fr;
     }
     
     .jury-content {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 30px;
     }
     
     .jury-message {
@@ -861,27 +971,100 @@ body {
     .detailed-scores {
         grid-template-columns: 1fr;
     }
+    
+    .jury-section,
+    .thanks-section {
+        padding: 40px 25px;
+    }
 }
 
 @media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
     .landing-title {
-        font-size: 2em;
+        font-size: 2.2em;
+    }
+    
+    .landing-logo {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .landing-subtitle {
+        font-size: 1.1em;
+        letter-spacing: 4px;
     }
     
     .view-results-btn {
         padding: 16px 40px;
-        font-size: 1em;
+        font-size: 0.95em;
+        letter-spacing: 2px;
     }
     
-    .winner-score {
-        font-size: 2em;
+    .header-glass {
+        padding: 30px 20px;
+    }
+    
+    .header h1 {
+        font-size: 1.8em;
+    }
+    
+    .subtitle {
+        font-size: 1em;
+        letter-spacing: 2px;
+    }
+    
+    .criteria-section,
+    .awards-intro-section {
+        padding: 30px 20px;
+    }
+    
+    .criteria-section h2,
+    .awards-intro-section h2 {
+        font-size: 1.8em;
+    }
+    
+    .section-title {
+        font-size: 1.5em;
+    }
+    
+    .section-subtitle {
+        font-size: 0.9em;
+    }
+    
+    .entry-card {
+        padding: 25px 20px;
     }
     
     .entry-name {
-        font-size: 1.1em;
+        font-size: 1.4em;
     }
     
-    .score-number {
+    .entry-score {
+        font-size: 2.3em;
+    }
+    
+    .entry-image {
+        height: 280px;
+    }
+    
+    .jury-text h3 {
         font-size: 1.8em;
+    }
+    
+    .jury-image {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .thanks-section h3 {
+        font-size: 2.2em;
+    }
+    
+    .thanks-logo {
+        width: 80px;
+        height: 80px;
     }
 }
