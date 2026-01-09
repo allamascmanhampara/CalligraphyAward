@@ -69,18 +69,18 @@ function switchTab(type){
 ====================== */
 const cards = document.getElementById("cards");
 
-function render(filter){
+function render(filter) {
   cards.innerHTML = "";
 
-  data.filter(d=>filter==="all"||d.w).forEach(d=>{
+  data.filter(d => filter === "all" || d.w).forEach(d => {
     const card = document.createElement("div");
-    card.className = "card"+(d.w?" winner":"");
+    card.className = "card" + (d.w ? " winner" : "");
 
     card.innerHTML = `
       <div class="top">
         <div>
           <div class="entry">Entry ${d.e}</div>
-          ${d.a?`<div class="badge">${d.a}</div>`:""}
+          ${d.a ? `<div class="badge">${d.a}</div>` : ""}
         </div>
         <div class="score">${d.t}</div>
       </div>
@@ -89,34 +89,60 @@ function render(filter){
         <img src="${d.e}.png" alt="Entry ${d.e}">
       </div>
 
-      <button class="view-details-btn">
+      <!-- NUCLEAR INLINE BUTTON -->
+      <button
+        style="
+          display:block;
+          width:100%;
+          margin-top:16px;
+          padding:14px;
+          border-radius:18px;
+          border:none;
+          background:linear-gradient(135deg,#22d3ee,#38bdf8);
+          color:#020617;
+          font-size:15px;
+          font-weight:700;
+        "
+      >
         View detailed evaluation
       </button>
 
-      <div class="details-panel">
-        <table class="marks-table">
+      <!-- DETAILS PANEL -->
+      <div
+        style="
+          display:none;
+          margin-top:16px;
+          padding:14px;
+          border-radius:14px;
+          background:rgba(0,0,0,0.35);
+        "
+      >
+        <table style="width:100%;border-collapse:collapse;margin-bottom:12px;">
           ${criteria.map((c,i)=>`
             <tr>
-              <td>${c}</td>
-              <td>${d.s[i]} / 10</td>
+              <td style="padding:6px 0;">${c}</td>
+              <td style="padding:6px 0;text-align:right;font-weight:700;">
+                ${d.s[i]} / 10
+              </td>
             </tr>
           `).join("")}
         </table>
 
-        <p class="jury-note">
+        <p style="line-height:1.6;">
           <strong>Jury Note:</strong> ${d.c}
         </p>
       </div>
     `;
 
-    const btn = card.querySelector(".view-details-btn");
-    const panel = card.querySelector(".details-panel");
+    const btn = card.querySelector("button");
+    const panel = card.querySelector("div[style*='display:none']");
 
-    btn.onclick = ()=>{
-      const open = panel.classList.toggle("open");
+    btn.onclick = () => {
+      const open = panel.style.display === "block";
+      panel.style.display = open ? "none" : "block";
       btn.textContent = open
-        ? "Hide detailed evaluation"
-        : "View detailed evaluation";
+        ? "View detailed evaluation"
+        : "Hide detailed evaluation";
     };
 
     cards.appendChild(card);
