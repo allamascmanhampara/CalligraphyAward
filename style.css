@@ -64,33 +64,8 @@ body {
     filter: blur(100px);
     opacity: 0.3;
     animation: float 25s ease-in-out infinite;
-}
 
-.orb-1 {
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, #d4af37 0%, transparent 70%);
-    top: -15%;
-    left: -15%;
-}
-
-.orb-2 {
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, #cd7f32 0%, transparent 70%);
-    bottom: -15%;
-    right: -15%;
-    animation-delay: 8s;
-}
-
-.orb-3 {
-    width: 350px;
-    height: 350px;
-    background: radial-gradient(circle, #8b4513 0%, transparent 70%);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation-delay: 15s;
+ 
 }
 
 @keyframes float {
@@ -1095,4 +1070,44 @@ body {
         width: 80px;
         height: 80px;
     }
+}
+@media (max-width: 600px) {
+
+  .landing-content {
+    padding: 0 16px;
+  }
+
+  .logo-circle {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 40px;
+  }
+
+  .landing-title {
+    font-size: 2.4em;
+  }
+
+  .title-word {
+    letter-spacing: 4px;
+  }
+
+  .title-year {
+    font-size: 0.5em;
+    letter-spacing: 8px;
+  }
+
+  .landing-subtitle {
+    font-size: 0.95em;
+    letter-spacing: 3px;
+  }
+
+  .subtitle-line {
+    width: 160px;
+  }
+
+  .view-results-btn {
+    padding: 14px 40px;
+    font-size: 0.9em;
+    letter-spacing: 2px;
+  }
 }
