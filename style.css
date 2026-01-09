@@ -113,14 +113,14 @@ body {
 }
 
 .landing-logo {
-    width: 320px;
-    height: 320px;
+    width: 400px;
+    height: 400px;
     object-fit: contain;
-    border-radius: 50%;
+    border-radius: 1%;
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     padding: 20px;
-    border: 2px solid var(--glass-border);
+    border: 1px solid var(--glass-border);
     box-shadow: 0 20px 60px rgba(212, 175, 55, 0.25);
     position: relative;
     z-index: 2;
@@ -134,7 +134,7 @@ body {
 
 .logo-glow {
     position: absolute;
-    inset: -30px;
+    inset: -1px;
     background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, transparent 70%);
     border-radius: 50%;
     animation: pulse 3s ease-in-out infinite;
