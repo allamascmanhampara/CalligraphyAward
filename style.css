@@ -111,8 +111,8 @@ body {
 }
 
 .landing-logo {
-    width: 180px;
-    height: 180px;
+    width: 320px;
+    height: 320px;
     object-fit: contain;
     border-radius: 50%;
     background: var(--glass-bg);
@@ -144,7 +144,7 @@ body {
 }
 
 .landing-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Delirian Script', serif;
     font-size: 4em;
     font-weight: 900;
     margin-bottom: 30px;
@@ -481,15 +481,15 @@ body {
     position: relative;
 }
 
-.trophy-icon {
+.Medal-icon {
     width: 100%;
     height: 100%;
     filter: drop-shadow(0 5px 15px currentColor);
 }
 
-.winner-card.first .trophy-icon { color: var(--gold); }
-.winner-card.second .trophy-icon { color: var(--silver); }
-.winner-card.third .trophy-icon { color: var(--bronze); }
+.winner-card.first .medal-icon { color: var(--gold); }
+.winner-card.second .medal-icon { color: var(--silver); }
+.winner-card.third .medal-icon { color: var(--bronze); }
 
 .award-text {
     font-size: 0.9em;
@@ -813,8 +813,8 @@ body {
     }
     
     .landing-logo {
-        width: 140px;
-        height: 140px;
+        width: 320px;
+        height: 320px;
     }
     
     .header h1 {
