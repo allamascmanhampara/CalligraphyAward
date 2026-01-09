@@ -106,12 +106,6 @@ body {
     max-width: 900px;
 }
 
-.logo-container {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 60px;
-}
-
 ..logo-circle {
   width: 400px;
   height: 400px;
