@@ -147,48 +147,35 @@ participants.sort((a, b) => {
     return b.total - a.total;
 });
 
-let currentTab = 'winners';
-
 // Show results page
 function showResults() {
     document.getElementById('landingPage').classList.remove('active');
     document.getElementById('resultsPage').classList.add('active');
     renderWinners();
-    renderLeaderboard();
+    renderParticipants();
 }
 
-// Show tab
-function showTab(tab) {
-    currentTab = tab;
-    
-    // Update tab buttons
-    document.getElementById('winnersTab').classList.toggle('active', tab === 'winners');
-    document.getElementById('fullListTab').classList.toggle('active', tab === 'fullList');
-    
-    // Show/hide sections
-    document.getElementById('winnersSection').style.display = tab === 'winners' ? 'block' : 'none';
-    document.getElementById('fullListSection').style.display = tab === 'fullList' ? 'block' : 'none';
-}
-
-// Render winners section
+// Render winners section (ranks 1-3)
 function renderWinners() {
     const winnersGrid = document.getElementById('winnersGrid');
     const winners = participants.filter(p => p.rank <= 3);
     
     winnersGrid.innerHTML = winners.map(participant => `
-        <div class="winner-card ${getRankClass(participant.rank)}">
+        <div class="entry-card ${getRankClass(participant.rank)}">
             <div class="award-badge">
                 ${getMedalSVG(participant.rank)}
                 <div class="award-text">${participant.award}</div>
             </div>
-            <img src="${participant.image}" alt="${participant.name}" class="winner-image">
-            <div class="winner-name">${participant.name}</div>
-            <div class="winner-score">${participant.total}/50</div>
-            <button class="view-details-btn" onclick="toggleDetails('${participant.id}')">
-                <span class="detail-toggle" id="toggle-${participant.id}">View Detailed Score</span>
+            <div class="entry-header">
+                <img src="${participant.image}" alt="${participant.name}" class="entry-image">
+                <div class="entry-name">${participant.name}</div>
+                <div class="entry-score">${participant.total}/50</div>
+            </div>
+            <button class="view-details-btn" onclick="toggleDetails('${participant.id}-winner')">
+                <span class="detail-toggle" id="toggle-${participant.id}-winner">View Detailed Score</span>
             </button>
-            <div class="entry-details" id="details-${participant.id}">
-                <h3 style="color: #FFD700; margin-bottom: 15px; text-align: center;">Detailed Scoring</h3>
+            <div class="entry-details" id="details-${participant.id}-winner">
+                <h3>Detailed Scoring</h3>
                 <div class="detailed-scores">
                     ${participant.scores.map((score, index) => `
                         <div class="score-item">
@@ -206,27 +193,28 @@ function renderWinners() {
     `).join('');
 }
 
-// Render complete leaderboard
-function renderLeaderboard() {
-    const leaderboard = document.getElementById('leaderboard');
+// Render all participants section (all entries)
+function renderParticipants() {
+    const participantsGrid = document.getElementById('participantsGrid');
     
-    leaderboard.innerHTML = participants.map(participant => `
-        <div class="entry-item">
+    participantsGrid.innerHTML = participants.map(participant => `
+        <div class="entry-card ${participant.rank <= 3 ? getRankClass(participant.rank) : ''}">
+            ${participant.rank <= 3 ? `
+                <div class="award-badge">
+                    ${getMedalSVG(participant.rank)}
+                    <div class="award-text">${participant.award}</div>
+                </div>
+            ` : ''}
             <div class="entry-header">
-                <div class="entry-left">
-                    <img src="${participant.image}" alt="${participant.name}" class="entry-image-small">
-                    <div class="entry-name">${participant.name}</div>
-                </div>
-                <div class="entry-score">
-                    <div class="score-number">${participant.total}</div>
-                    <div class="score-label">out of 50</div>
-                </div>
+                <img src="${participant.image}" alt="${participant.name}" class="entry-image">
+                <div class="entry-name">${participant.name}</div>
+                <div class="entry-score">${participant.total}/50</div>
             </div>
-            <button class="view-details-btn" onclick="toggleDetails('${participant.id}')">
-                <span class="detail-toggle" id="toggle-${participant.id}-list">View Detailed Score</span>
+            <button class="view-details-btn" onclick="toggleDetails('${participant.id}-participant')">
+                <span class="detail-toggle" id="toggle-${participant.id}-participant">View Detailed Score</span>
             </button>
-            <div class="entry-details" id="details-${participant.id}-list">
-                <h3 style="color: #FFD700; margin-bottom: 15px;">Detailed Scoring</h3>
+            <div class="entry-details" id="details-${participant.id}-participant">
+                <h3>Detailed Scoring</h3>
                 <div class="detailed-scores">
                     ${participant.scores.map((score, index) => `
                         <div class="score-item">
@@ -246,9 +234,8 @@ function renderLeaderboard() {
 
 // Toggle details
 function toggleDetails(id) {
-    const suffix = currentTab === 'fullList' ? '-list' : '';
-    const detailsElement = document.getElementById(`details-${id}${suffix}`);
-    const toggleElement = document.getElementById(`toggle-${id}${suffix}`);
+    const detailsElement = document.getElementById(`details-${id}`);
+    const toggleElement = document.getElementById(`toggle-${id}`);
     
     if (detailsElement.classList.contains('active')) {
         detailsElement.classList.remove('active');
@@ -277,9 +264,9 @@ function getMedalSVG(rank) {
     const color = colors[rank] || '#999';
     
     return `
-        <svg class="Medal-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="medal-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
-                <linearGradient id="Medal-gradient-${rank}" x1="0%" y1="0%" x2="0%" y2="100%">
+                <linearGradient id="medal-gradient-${rank}" x1="0%" y1="0%" x2="0%" y2="100%">
                     <stop offset="0%" style="stop-color:${color};stop-opacity:1" />
                     <stop offset="100%" style="stop-color:${adjustBrightness(color, -20)};stop-opacity:1" />
                 </linearGradient>
@@ -292,13 +279,13 @@ function getMedalSVG(rank) {
                 </filter>
             </defs>
             <path d="M6 9C6 6.79086 7.79086 5 10 5H14C16.2091 5 18 6.79086 18 9V10C18 12.2091 16.2091 14 14 14H10C7.79086 14 6 12.2091 6 10V9Z" 
-                  fill="url(#Medal-gradient-${rank})" filter="url(#glow-${rank})"/>
+                  fill="url(#medal-gradient-${rank})" filter="url(#glow-${rank})"/>
             <path d="M12 14V17" stroke="${color}" stroke-width="2" stroke-linecap="round" filter="url(#glow-${rank})"/>
             <path d="M9 19H15" stroke="${color}" stroke-width="2" stroke-linecap="round" filter="url(#glow-${rank})"/>
             <path d="M5 7H6V9C6 9.55228 5.55228 10 5 10H4C3.44772 10 3 9.55228 3 9V8C3 7.44772 3.44772 7 4 7H5Z" 
-                  fill="url(#Medal-gradient-${rank})" filter="url(#glow-${rank})"/>
+                  fill="url(#medal-gradient-${rank})" filter="url(#glow-${rank})"/>
             <path d="M19 7H18V9C18 9.55228 18.4477 10 19 10H20C20.5523 10 21 9.55228 21 9V8C21 7.44772 20.5523 7 20 7H19Z" 
-                  fill="url(#Medal-gradient-${rank})" filter="url(#glow-${rank})"/>
+                  fill="url(#medal-gradient-${rank})" filter="url(#glow-${rank})"/>
             <circle cx="12" cy="8" r="1.5" fill="white" opacity="0.6"/>
         </svg>
     `;
