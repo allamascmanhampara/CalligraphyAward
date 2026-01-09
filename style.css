@@ -106,9 +106,10 @@ body {
     max-width: 900px;
 }
 
-.logo-circle {
-  width: 400px;
-  height: 400px;
+..logo-circle {
+  width: min(80vw, 400px);
+  height: min(80vw, 400px);
+
   border-radius: 50%;
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
@@ -119,16 +120,13 @@ body {
   align-items: center;
   justify-content: center;
 
-  overflow: hidden; /* 🔑 clips logo to circle */
-}
-
-.landing-logo {
+  margin: 0 auto 60px;  /* 🔑 centers horizontally */
+  overflow: hidden;
+html, body {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* 🔑 fills circle edge-to-edge */
-  display: block;
-
+  overflow-x: hidden; /* 🔒 prevents mobile drift */
 }
+
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     padding: 20px;
