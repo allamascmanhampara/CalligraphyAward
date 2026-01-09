@@ -1,90 +1,216 @@
+/* ======================
+   JUDGING CRITERIA
+====================== */
 const criteria = [
+  "Letter Formation",
   "Composition & Balance",
-  "Stroke Quality",
-  "Proportion & Structure",
-  "Rhythm & Flow",
-  "Overall Impact"
+  "Readability",
+  "Creativity & Expression",
+  "Overall Finish"
 ];
 
+/* ======================
+   ENTRIES DATA (A–N)
+   Each entry has:
+   - e : Entry ID
+   - t : Total score
+   - w : Winner (true/false)
+   - a : Award label (if winner)
+   - s : Scores array (5 criteria)
+   - c : FULL jury paragraph
+====================== */
 const data = [
-  {img:"A.png",n:"Sauda",t:40,s:[8,8,8,8,8],
-   c:"A refined and elegant composition marked by disciplined strokes and consistent proportions. The visual rhythm is calm and controlled, reflecting a thoughtful approach. Strong finishing confidence would further elevate its impact."},
-  {img:"B.png",n:"Thasleema",t:46,s:[9,10,9,9,9],
-   c:"Exceptional mastery of structure, rhythm, and proportion is evident throughout this work. Confident letterforms and balanced spacing reflect deep understanding, maturity, and authority, making this a benchmark-level composition."},
-  {img:"C.png",n:"Fathimath Shuhaiba Falila",t:40,s:[9,9,8,8,6],
-   c:"An energetic and expressive composition with strong movement and confident strokes. Minor finishing inconsistencies slightly affect clarity, yet the artistic intent remains powerful and engaging."},
-  {img:"D.png",n:"Fathima",t:30,s:[6,6,7,5,6],
-   c:"A sincere and honest execution reflecting genuine effort. Greater attention to spacing, balance, and finishing would help the work mature and gain visual stability."},
-  {img:"E.png",n:"Sayyedath Ayshath Noufabi",t:37,s:[8,8,7,7,7],
-   c:"A balanced and readable piece reflecting steady control and thoughtful composition. Further refinement in stroke confidence would enhance expression and visual authority."},
-  {img:"F.png",n:"Muhammed Ajeer",t:33,s:[7,7,6,7,6],
-   c:"Dynamic letterforms convey expressive intent and enthusiasm. Improvements in proportional consistency and spacing would strengthen overall clarity."},
-  {img:"G.png",n:"Rashid",t:31,s:[6,6,7,6,6],
-   c:"A restrained and minimalist approach marked by simplicity. Slight enhancement in contrast would add strength and presence."},
-  {img:"H.png",n:"Fathimath Raihana",t:37,s:[8,8,7,7,7],
-   c:"Creative use of spacing and rhythm defines this artwork. While uniformity varies slightly, the composition remains thoughtful and expressive."},
-  {img:"I.png",n:"Fathimath Jafna",t:35,s:[7,7,8,6,7],
-   c:"Clear readability and calm structure characterize this piece. Greater confidence in transitions would enhance visual impact."},
-  {img:"J.png",n:"Mohammed Mahroof",t:38,s:[8,8,8,7,7],
-   c:"A graceful execution marked by refined control and balanced composition, producing a visually pleasing and resolved artwork."},
-  {img:"K.png",n:"Ayishath Shamna",t:32,s:[7,6,6,7,6],
-   c:"Bold gestures and confident strokes are evident. Refinement of proportions would improve clarity and balance."},
-  {img:"L.png",n:"Jasmina",t:33,s:[7,7,6,7,6],
-   c:"A dense and expressive composition. Improved spacing would allow the work to breathe more effectively."},
-  {img:"M.png",n:"Fidha Fathima",t:34,s:[7,7,6,7,7],
-   c:"Energetic execution reflecting experimentation and enthusiasm. Structural consistency would strengthen presentation."},
-  {img:"N.png",n:"Ayishath Husna",t:32,s:[6,7,6,7,6],
-   c:"A decorative approach with creative intent. Continued focus on discipline and structure will enhance future development."}
+  {
+    e: "B",
+    t: 46,
+    w: true,
+    a: "🥇 First Place",
+    s: [9, 10, 9, 9, 9],
+    c: "This composition demonstrates exceptional mastery in structure, rhythm, and balance. The letterforms are confident and disciplined, while the spacing between elements creates a harmonious visual flow. The work reflects both spiritual depth and technical maturity, making it a highly deserving first-place entry."
+  },
+  {
+    e: "C",
+    t: 40,
+    w: true,
+    a: "🥈 Second Place",
+    s: [9, 9, 8, 8, 6],
+    c: "This work stands out for its dynamic movement and confident rhythm. The overall structure is strong, though certain finishing details slightly affect clarity. Nevertheless, the artistic intention and visual energy are clearly expressed."
+{
+  },
+e: "A",
+    t: 40,
+    w: true,
+    a: "🥈 Second Place",
+    s: [8, 8, 8, 8, 8],
+    c: "A refined and elegant composition with consistent proportions and controlled strokes. The artist shows a strong understanding of classical principles. With slightly greater contrast and expressive emphasis, the work could achieve even stronger visual impact."
+  },
+  {
+    e: "E",
+    t: 37,
+    w: true,
+    a: "🥉 Third Place",
+    s: [8, 8, 7, 7, 7],
+    c: "A balanced and visually pleasing piece that reflects sincere effort and steady control. The composition is stable and readable, with room for further refinement in stroke confidence and expressive detailing."
+  },
+  {
+    e: "H",
+    t: 37,
+    w: true,
+    a: "🥉 Third Place",
+    s: [8, 8, 7, 7, 7],
+    c: "This artwork shows creative use of spacing and rhythm. While the structure is sound, slight variations in letter weight affect overall uniformity. It remains a thoughtful and expressive submission."
+  },
+  {
+    e: "J",
+    t: 38,
+    w: false,
+    s: [8, 8, 8, 7, 7],
+    c: "Graceful execution with refined control is evident throughout this work. The composition maintains clarity and harmony, demonstrating a solid understanding of balance and proportion."
+  },
+  {
+    e: "I",
+    t: 35,
+    w: false,
+    s: [7, 7, 8, 6, 7],
+    c: "Clear readability and a calm, composed structure define this piece. With increased confidence in stroke transitions, the overall visual impact could be enhanced."
+  },
+  {
+    e: "M",
+    t: 34,
+    w: false,
+    s: [7, 7, 6, 7, 7],
+    c: "An energetic and expressive piece that reflects experimentation and enthusiasm. Greater consistency in letter structure would help strengthen the composition further."
+  },
+  {
+    e: "F",
+    t: 33,
+    w: false,
+    s: [7, 7, 6, 7, 6],
+    c: "The dynamic form of this work is engaging, though balance and spacing require further refinement. A promising effort with clear artistic intent."
+  },
+  {
+    e: "L",
+    t: 33,
+    w: false,
+    s: [7, 7, 6, 7, 6],
+    c: "A dense and expressive composition that conveys strong intent. Improved spacing and rhythmic flow would enhance clarity and visual breathing room."
+  },
+  {
+    e: "K",
+    t: 32,
+    w: false,
+    s: [7, 6, 6, 7, 6],
+    c: "Bold strokes and confident gestures are apparent in this work. Refining proportional accuracy will significantly strengthen the overall composition."
+  },
+  {
+    e: "N",
+    t: 32,
+    w: false,
+    s: [6, 7, 6, 7, 6],
+    c: "A modern decorative approach with creative intent. Continued focus on structural consistency and stroke discipline will improve overall impact."
+  },
+  {
+    e: "D",
+    t: 30,
+    w: false,
+    s: [6, 6, 7, 5, 6],
+    c: "A sincere and simple presentation that reflects genuine effort. With greater attention to balance and finishing, this work can develop further."
+  },
+  {
+    e: "G",
+    t: 31,
+    w: false,
+    s: [6, 6, 7, 6, 6],
+    c: "Minimalist in nature, this work carries elegance through restraint. Slight enhancement in contrast and stroke confidence would add strength."
+  }
 ];
 
-/* SORT BY MARKS */
-data.sort((a,b)=>b.t-a.t);
+/* ======================
+   VIEW SWITCHING
+====================== */
+function openResults() {
+  document.getElementById("landing").classList.remove("active");
+  document.getElementById("results").classList.add("active");
+  render("winners");
+}
 
-const openBtn = document.getElementById("openEntries");
-const entries = document.getElementById("entries");
+/* ======================
+   TAB SWITCHING
+====================== */
+function switchTab(tab) {
+  document.querySelectorAll(".tab").forEach(btn => btn.classList.remove("active"));
+  event.target.classList.add("active");
+  render(tab);
+}
+
+/* ======================
+   RENDER CARDS
+====================== */
 const cards = document.getElementById("cards");
 
-openBtn.onclick = () => {
-  document.querySelector(".landing").style.display = "none";
-  entries.classList.remove("hidden");
-};
+function render(filter) {
+  cards.innerHTML = "";
 
-data.forEach(d=>{
-  const card=document.createElement("div");
-  card.className="card";
+  data
+    .filter(d => filter === "all" || d.w)
+    .forEach(d => {
+      const card = document.createElement("div");
+      card.className = "card" + (d.w ? " winner" : "");
 
-  card.innerHTML=`
-    <div class="card-header">
-      <div class="artist-name">${d.n}</div>
-      <div class="total">${d.t}</div>
-    </div>
+      card.innerHTML = `
+        <div class="top">
+          <div>
+            <div class="entry">Entry ${d.e}</div>
+            ${d.a ? `<div class="badge">${d.a}</div>` : ""}
+          </div>
+          <div class="score">${d.t}</div>
+        </div>
 
-    <div class="artwork">
-      <img src="${d.img}" alt="${d.n}">
-    </div>
+        <div class="artwork">
+          <img src="${d.e}.png" alt="Entry ${d.e}" onclick="expandImage('${d.e}.png')">
+        </div>
 
-    <button class="view-btn">View more</button>
+        <button class="view">View detailed evaluation</button>
 
-    <div class="details">
-      <table>
-        ${criteria.map((c,i)=>`
-          <tr>
-            <td>${c}</td>
-            <td>${d.s[i]} / 10</td>
-          </tr>
-        `).join("")}
-      </table>
-      <p class="note"><strong>Jury Note:</strong> ${d.c}</p>
-    </div>
-  `;
+        <div class="details">
+          <table class="marks-table">
+            ${criteria.map((c, i) => `
+              <tr>
+                <td>${c}</td>
+                <td>${d.s[i]} / 10</td>
+              </tr>
+            `).join("")}
+          </table>
 
-  const btn=card.querySelector(".view-btn");
-  const det=card.querySelector(".details");
+          <p class="jury-note">
+            <strong>Jury Note:</strong> ${d.c}
+          </p>
+        </div>
+      `;
 
-  btn.onclick=()=>{
-    det.classList.toggle("open");
-    btn.textContent=det.classList.contains("open")?"Hide details":"View more";
-  };
+      const btn = card.querySelector(".view");
+      const details = card.querySelector(".details");
 
-  cards.appendChild(card);
-});
+      btn.onclick = () => {
+        const isOpen = details.classList.toggle("open");
+        btn.textContent = isOpen
+          ? "Hide detailed evaluation"
+          : "View detailed evaluation";
+      };
+
+      cards.appendChild(card);
+    });
+}
+
+/* ======================
+   IMAGE MODAL
+====================== */
+function expandImage(src) {
+  const modal = document.getElementById("imageModal");
+  modal.style.display = "flex";
+  modal.querySelector("img").src = src;
+}
+
+function closeImage() {
+  document.getElementById("imageModal").style.display = "none";
+}
