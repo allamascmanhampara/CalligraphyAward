@@ -1,102 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Nuqtah Award 2026 · Allama S.C.</title>
-
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>Arabic Calligraphy Jury Results</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+<body>
 
-<body class="dark">
-
-<!-- ======================
-     LANDING VIEW
-====================== -->
-<section id="landing" class="view active">
-  <div class="glass-card">
-
-    <img src="allama-logo.png" alt="Allama S.C. Logo" class="logo">
-
-    <h1>
-      Nuqtah Award<br>
-      2026
-    </h1>
-
-    <p class="subtitle">
-      Allama S.C.<br>
-      Arabic Calligraphy Competition
-    </p>
-
-    <button class="cta" onclick="openResults()">
-  View Results
-    </button>
-
-  </div>
-</section>
-
-<!-- ======================
-     RESULTS VIEW
-====================== -->
-<section id="results" class="view">
-
-  <!-- HEADER -->
-  <header class="results-header">
-    <h2>Competition Results</h2>
-    <p>Official Jury Evaluation</p>
-
-    <!-- TABS -->
-    <div class="tabs">
-      <button class="tab active" onclick="switchTab('winners')">
-        🏆 Winners
-      </button>
-      <button class="tab" onclick="switchTab('all')">
-        📋 Full List
-      </button>
-    </div>
-  </header>
-
-  <!-- CARDS (FILLED BY JS) -->
-  <main id="cards"></main>
-
-  <!-- ======================
-       JURY SECTION
-  ====================== -->
-  <section class="jury">
-
-    <div class="jury-card">
-      <img src="jury.jpg" alt="Chief Jury">
-
-      <h3>Khaleelullah Chemnad</h3>
-      <span>Chief Jury · Arabic Calligraphy</span>
-
+  <!-- LANDING -->
+  <section class="landing">
+    <div class="landing-content">
+      <h1>Arabic Calligraphy Evaluation</h1>
       <p>
-        Each artwork submitted to the Nuqtah Award 2026 reflected sincere effort,
-        discipline, and devotion to the art of calligraphy. While levels of
-        refinement varied, the collective spirit of creativity and learning
-        made this competition both meaningful and inspiring.
+        Official jury assessment of submitted works, presented with transparency,
+        structure, and academic integrity.
       </p>
+      <button id="viewResultsBtn">View Results</button>
     </div>
-
-    <p class="thanks">
-      Allama S.C. extends heartfelt gratitude to all participants,
-      coordinators, and supporters for making the
-      <strong>Nuqtah Award 2026</strong> a memorable success.
-    </p>
-
   </section>
 
-</section>
+  <!-- RESULTS -->
+  <main id="results" class="container hidden">
+    <header class="page-header">
+      <h2>Evaluation Results (Entries A–N)</h2>
+      <p>Entries are listed in submission order with detailed jury feedback.</p>
+    </header>
 
-<!-- ======================
-     IMAGE MODAL
-====================== -->
-<div id="imageModal" onclick="closeImage()">
-  <img alt="Expanded artwork">
-</div>
+    <section id="cards" class="cards-grid"></section>
+  </main>
 
-<script src="script.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
