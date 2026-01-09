@@ -1,60 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nuqtah Award 2026 · Allama S.C.</title>
-
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuqtah Calligraphy Awards 2025</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
-<body class="dark">
-
-<!-- LANDING -->
-<section id="landing" class="view active">
-  <div class="glass-card">
-    <img src="allama-logo.png" class="logo" alt="Allama SC">
-    <h1>Nuqtah Award<br>2026</h1>
-    <p class="subtitle">Allama S.C.<br>Arabic Calligraphy Competition</p>
-    <button class="cta" onclick="openResults()">View Results</button>
-  </div>
-</section>
-
-<!-- RESULTS -->
-<section id="results" class="view">
-  <header class="results-header">
-    <h2>Competition Results</h2>
-    <p>Official Jury Evaluation</p>
-
-    <div class="tabs">
-      <button class="tab active" onclick="switchTab('winners')">🏆 Winners</button>
-      <button class="tab" onclick="switchTab('all')">📋 Full List</button>
-    </div>
-  </header>
-
-  <main id="cards"></main>
-
-  <!-- JURY MESSAGE -->
-  <section class="jury">
-    <div class="jury-card">
-      <img src="jury.jpg" alt="Jury">
-      <h3>Khaleelullah Chemnad</h3>
-      <span>Chief Jury · Arabic Calligraphy</span>
-      <p>
-        The Nuqtah Award 2026 showcased sincere dedication, patience, and artistic
-        growth. Every participant demonstrated respect for tradition and a desire
-        to refine their skill. The jury appreciates each effort presented.
-      </p>
+<body>
+    <!-- Landing Page -->
+    <div id="landingPage" class="landing-page active">
+        <div class="landing-content">
+            <img src="Allama-logo.png" alt="Allama SC Manhampara" class="landing-logo">
+            <h1 class="landing-title">NUQTAH CALLIGRAPHY AWARDS 2025</h1>
+            <h2 class="landing-subtitle">ALLAMA SC MANHAMPARA</h2>
+            <button class="view-results-btn" onclick="showResults()">VIEW RESULTS</button>
+        </div>
     </div>
 
-    <p class="thanks">
-      With gratitude,<br>
-      <strong>Allama S.C. Manhampara</strong> thanks all participants and supporters.
-    </p>
-  </section>
-</section>
+    <!-- Results Page -->
+    <div id="resultsPage" class="results-page">
+        <div class="container">
+            <header class="header">
+                <img src="Allama-logo.png" alt="Allama SC Manhampara" class="header-logo">
+                <h1>Nuqtah Calligraphy Awards 2025</h1>
+                <p class="subtitle">Competition Results</p>
+            </header>
 
-<script src="script.js"></script>
+            <!-- Judging Criteria -->
+            <div class="criteria-section">
+                <h2>Judging Criteria (10 marks each)</h2>
+                <div class="criteria-grid">
+                    <div class="criteria-item">
+                        <strong>Letter Formation</strong>
+                        <span>Correctness, stroke control</span>
+                    </div>
+                    <div class="criteria-item">
+                        <strong>Composition & Balance</strong>
+                        <span>Layout, spacing, harmony</span>
+                    </div>
+                    <div class="criteria-item">
+                        <strong>Readability</strong>
+                        <span>Clarity of text</span>
+                    </div>
+                    <div class="criteria-item">
+                        <strong>Creativity & Expression</strong>
+                        <span>Originality, visual impact</span>
+                    </div>
+                    <div class="criteria-item">
+                        <strong>Overall Finish</strong>
+                        <span>Neatness, confidence</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Winners Section -->
+            <div class="winners-section">
+                <h2>Award Winners</h2>
+                <div class="winners-grid" id="winnersGrid"></div>
+            </div>
+
+            <!-- Complete Leaderboard -->
+            <div class="leaderboard-section">
+                <h2>Complete Leaderboard</h2>
+                <div class="leaderboard" id="leaderboard"></div>
+            </div>
+
+            <!-- Jury Message -->
+            <div class="jury-section">
+                <div class="jury-content">
+                    <img src="jury.jpg" alt="Khaleelullah Chemnad" class="jury-image">
+                    <div class="jury-text">
+                        <h3>Jury's Message</h3>
+                        <p class="jury-message">
+                            It has been an absolute honor to witness the remarkable talent and dedication displayed by all participants in the Nuqtah Calligraphy Awards 2025. Each entry reflects not just skill, but a deep reverence for the art of Arabic calligraphy. The precision in letter formation, the thoughtful compositions, and the creative expressions presented here demonstrate the bright future of this timeless art form. Every participant should be proud of their work, as each piece carries its own unique beauty and significance. May this competition inspire you to continue perfecting your craft and preserving this noble tradition.
+                        </p>
+                        <p class="jury-name"><strong>Khaleelullah Chemnad</strong><br>Chief Jury</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thank You Note -->
+            <div class="thanks-section">
+                <img src="Allama-logo.png" alt="Allama SC Manhampara" class="thanks-logo">
+                <h3>Thank You</h3>
+                <p>
+                    Allama SC Manhampara extends heartfelt gratitude to all participants, supporters, and attendees of the Nuqtah Calligraphy Awards 2025. Your passion for Arabic calligraphy and commitment to preserving this beautiful art form inspires us all. Special thanks to our esteemed jury and organizing committee for making this event a grand success. Together, we celebrate the art, culture, and creativity that binds our community.
+                </p>
+                <p class="thanks-signature">— Allama SC Manhampara</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Entry Detail Modal -->
+    <div id="entryModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
