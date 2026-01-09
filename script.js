@@ -1,4 +1,25 @@
-/* ======================
+console.log("script.js loaded");
+
+/* === HARD LANDING SWITCH FIX === */
+window.openResults = function () {
+  const landing = document.getElementById("landing");
+  const results = document.getElementById("results");
+
+  if (!landing || !results) {
+    alert("Landing or Results section missing");
+    return;
+  }
+
+  landing.style.display = "none";
+  results.style.display = "block";
+
+  // ensure correct layout
+  results.style.minHeight = "100vh";
+
+  if (typeof render === "function") {
+    render("winners");
+  }
+};/* ======================
    JUDGING CRITERIA
 ====================== */
 const criteria = [
