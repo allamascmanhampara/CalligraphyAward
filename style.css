@@ -362,3 +362,12 @@ button.view {
 .view-details-btn:active {
   transform: scale(0.98);
 }
+.view {
+  display: none;
+  min-height: 100vh;
+}
+
+.view.active {
+  display: flex;
+  flex-direction: column;
+}
