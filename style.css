@@ -106,9 +106,11 @@ body {
     max-width: 900px;
 }
 
-..logo-circle {
+/* ===== FIXED LOGO CIRCLE ===== */
+.logo-circle {
   width: min(80vw, 400px);
   height: min(80vw, 400px);
+  margin: 0 auto 60px;
 
   border-radius: 50%;
   background: var(--glass-bg);
@@ -120,11 +122,19 @@ body {
   align-items: center;
   justify-content: center;
 
-  margin: 0 auto 60px;  /* 🔑 centers horizontally */
   overflow: hidden;
-html, body {
+  position: relative;
+  z-index: 2;
+
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+.landing-logo {
   width: 100%;
-  overflow-x: hidden; /* 🔒 prevents mobile drift */
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
 }
 
     background: var(--glass-bg);
