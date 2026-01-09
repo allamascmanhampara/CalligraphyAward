@@ -302,16 +302,17 @@ button.view {
   line-height: 1.6;
   opacity: 0.9;
 }
-.details-panel{
-  display:none;
-  margin-top:16px;
-  padding:14px;
-  border-radius:14px;
-  background:rgba(0,0,0,.35);
+..details-panel {
+  display: none;
 }
 
-.details-panel.open{
-  display:block;
+.details-panel.open {
+  display: block !important;
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.35);
+
 }
 
 .marks-table{
@@ -337,4 +338,27 @@ button.view {
   border:none;
   cursor:pointer;
   font-weight:600;
+}
+/* ===== FORCE VIEW DETAILS BUTTON ===== */
+.view-details-btn {
+  display: block !important;
+  width: 100%;
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 16px;
+
+  background: linear-gradient(135deg, #22d3ee, #38bdf8) !important;
+  color: #020617 !important;
+
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.view-details-btn:active {
+  transform: scale(0.98);
 }
