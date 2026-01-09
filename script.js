@@ -109,14 +109,16 @@ function render(filter) {
 
       <!-- DETAILS PANEL -->
       <div
-        style="
-          display:none;
-          margin-top:16px;
-          padding:14px;
-          border-radius:14px;
-          background:rgba(0,0,0,0.35);
-        "
-      >
+  class="details-panel-inline"
+  style="
+    display:none;
+    margin-top:16px;
+    padding:14px;
+    border-radius:14px;
+    background:rgba(0,0,0,0.35);
+  "
+>
+
         <table style="width:100%;border-collapse:collapse;margin-bottom:12px;">
           ${criteria.map((c,i)=>`
             <tr>
@@ -135,15 +137,15 @@ function render(filter) {
     `;
 
     const btn = card.querySelector("button");
-    const panel = card.querySelector("div[style*='display:none']");
-
+    const panel = card.querySelector(".details-panel-inline");
     btn.onclick = () => {
-      const open = panel.style.display === "block";
-      panel.style.display = open ? "none" : "block";
-      btn.textContent = open
-        ? "View detailed evaluation"
-        : "Hide detailed evaluation";
-    };
+  if (panel.style.display === "none" || panel.style.display === "") {
+    panel.style.display = "block";
+    btn.textContent = "Hide detailed evaluation";
+  } else {
+    panel.style.display = "none";
+    btn.textContent = "View detailed evaluation";
+
 
     cards.appendChild(card);
   });
