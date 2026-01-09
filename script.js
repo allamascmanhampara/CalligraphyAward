@@ -52,9 +52,21 @@ const data = [
 /* ======================
    VIEW SWITCH
 ====================== */
-function openResults(){
-  document.getElementById("landing").classList.remove("active");
-  document.getElementById("results").classList.add("active");
+function openResults() {
+  const landing = document.getElementById("landing");
+  const results = document.getElementById("results");
+
+  // Safety check
+  if (!landing || !results) {
+    console.error("Landing or Results section not found");
+    return;
+  }
+
+  // Switch views
+  landing.classList.remove("active");
+  results.classList.add("active");
+
+  // Render winners by default
   render("winners");
 }
 
