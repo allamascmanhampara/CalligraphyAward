@@ -1,267 +1,116 @@
-/* ========== VARIABLES ========== */
 :root {
-  --bg-dark: #050505;
-  --bg-light: #f8fafc;
-  --card-dark: rgba(255,255,255,.08);
-  --card-light: #ffffff;
-  --text-dark: #f5f5f5;
-  --text-light: #020617;
-  --gold: #facc15;
-  --accent: #22d3ee;
+  --bg-dark:#050505;
+  --card-dark:rgba(255,255,255,.08);
+  --text-dark:#f5f5f5;
+  --gold:#facc15;
+  --accent:#22d3ee;
 }
 
-/* ========== RESET ========== */
-* { box-sizing: border-box; }
-
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: 'Inter', system-ui, sans-serif;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui,sans-serif;
+  background:radial-gradient(circle at top,#141414,var(--bg-dark));
+  color:var(--text-dark);
 }
 
-/* ========== THEMES ========== */
-body.dark {
-  background: radial-gradient(circle at top, #141414, var(--bg-dark));
-  color: var(--text-dark);
+/* Views */
+.view{display:none;min-height:100vh}
+.view.active{display:flex;flex-direction:column}
+
+/* Landing */
+#landing{justify-content:center;align-items:center;padding:24px}
+.glass-card{
+  max-width:420px;
+  width:100%;
+  padding:40px 32px;
+  border-radius:30px;
+  background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.04));
+  backdrop-filter:blur(22px);
+  text-align:center;
+}
+.logo{width:150px;margin-bottom:26px}
+h1{font-size:36px;font-weight:800}
+.subtitle{opacity:.8;margin:14px 0 28px}
+.cta{
+  width:100%;
+  padding:16px;
+  border-radius:18px;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
 }
 
-body.light {
-  background: linear-gradient(180deg, #ffffff, var(--bg-light));
-  color: var(--text-light);
+/* Results */
+#results{padding:20px}
+.results-header{text-align:center;margin-bottom:22px}
+.tabs{display:flex;justify-content:center;gap:12px;margin-top:14px}
+.tab{
+  padding:10px 18px;
+  border-radius:999px;
+  border:none;
+  cursor:pointer;
+  background:rgba(255,255,255,.14);
+}
+.tab.active{background:var(--gold);color:#000}
+
+/* Cards */
+#cards{max-width:900px;margin:auto}
+.card{
+  background:var(--card-dark);
+  border-radius:24px;
+  padding:18px;
+  margin-bottom:22px;
+}
+.card.winner{
+  border:2px solid var(--gold);
+  box-shadow:0 0 30px rgba(250,204,21,.6);
+}
+.top{display:flex;justify-content:space-between;align-items:center}
+.name{font-size:20px;font-weight:700}
+.score{font-size:26px;font-weight:800;color:var(--accent)}
+.badge{font-size:13px;opacity:.85}
+
+.artwork img{
+  width:100%;
+  border-radius:18px;
+  margin:14px 0;
 }
 
-/* Subtle calligraphy texture */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,.04) 2px, transparent 2px),
-    radial-gradient(circle at 70% 60%, rgba(255,255,255,.04) 2px, transparent 2px);
-  background-size: 140px 140px;
-  pointer-events: none;
-  opacity: .4;
+/* Details */
+button.view{
+  padding:12px 16px;
+  border-radius:14px;
+  border:none;
+  cursor:pointer;
+  background:linear-gradient(135deg,#22d3ee,#38bdf8);
+  color:#020617;
+  font-weight:700;
 }
+.details{
+  display:none;
+  margin-top:14px;
+  border-top:1px dashed rgba(255,255,255,.3);
+  padding-top:12px;
+}
+.details.open{display:block}
 
-/* ========== VIEW SYSTEM ========== */
-.view {
-  display: none;
-  min-height: 100vh;
-}
+.marks-table{width:100%;border-collapse:collapse;margin-bottom:10px}
+.marks-table td{padding:6px 0}
+.marks-table td:last-child{text-align:right;font-weight:700}
 
-.view.active {
-  display: flex;
-  flex-direction: column;
-}
+.jury-note{line-height:1.6}
 
-/* ========== LANDING ========== */
-#landing {
-  justify-content: center;
-  align-items: center;
-  padding: 24px;
+/* Jury */
+.jury{padding:50px 16px;text-align:center}
+.jury-card{
+  max-width:420px;
+  margin:auto;
+  padding:26px;
+  border-radius:26px;
+  background:var(--card-dark);
 }
-
-.glass-card {
-  max-width: 420px;
-  width: 100%;
-  text-align: center;
-  padding: 40px 32px;
-  border-radius: 30px;
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,.14),
-    rgba(255,255,255,.04)
-  );
-  backdrop-filter: blur(22px);
-  box-shadow: 0 30px 80px rgba(0,0,0,.6);
+.jury-card img{
+  width:90px;height:90px;border-radius:50%;margin-bottom:12px
 }
-
-.logo {
-  width: 150px;
-  margin-bottom: 26px;
-}
-
-h1 {
-  font-size: 36px;
-  font-weight: 800;
-  line-height: 1.1;
-}
-
-.subtitle {
-  opacity: .8;
-  margin: 14px 0 28px;
-}
-
-.cta {
-  width: 100%;
-  padding: 16px;
-  border-radius: 18px;
-  border: none;
-  background: linear-gradient(135deg, #f5f5f5, #d4d4d4);
-  font-weight: 600;
-  cursor: pointer;
-}
-
-/* ========== RESULTS HEADER ========== */
-#results {
-  padding: 20px;
-}
-
-.results-header {
-  text-align: center;
-  margin-bottom: 22px;
-}
-
-.tabs {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 14px;
-}
-
-.tab {
-  padding: 10px 18px;
-  border-radius: 999px;
-  border: none;
-  background: rgba(255,255,255,.14);
-  cursor: pointer;
-}
-
-.tab.active {
-  background: var(--gold);
-  color: #000;
-}
-
-/* ========== CARDS ========== */
-#cards {
-  max-width: 900px;
-  margin: auto;
-}
-
-.card {
-  background: var(--card-dark);
-  border-radius: 24px;
-  padding: 18px;
-  margin-bottom: 22px;
-  backdrop-filter: blur(18px);
-  box-shadow: 0 18px 45px rgba(0,0,0,.45);
-}
-
-.card.winner {
-  border: 2px solid var(--gold);
-  box-shadow: 0 0 30px rgba(250,204,21,.6);
-}
-
-/* Trophy glow */
-.card.winner {
-  animation: glow 2.5s infinite alternate;
-}
-
-@keyframes glow {
-  from { box-shadow: 0 0 18px rgba(250,204,21,.4); }
-  to   { box-shadow: 0 0 40px rgba(250,204,21,.9); }
-}
-
-.top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.entry {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.score {
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--accent);
-}
-
-.badge {
-  font-size: 13px;
-  opacity: .85;
-}
-
-/* ========== ARTWORK IMAGE ========== */
-.artwork img {
-  width: 100%;
-  border-radius: 18px;
-  margin: 14px 0;
-  cursor: pointer;
-}
-
-/* ========== BUTTONS ========== */
-button.view {
-  padding: 10px 16px;
-  border-radius: 14px;
-  border: none;
-  background: rgba(255,255,255,.2);
-  cursor: pointer;
-}
-
-/* ========== DETAILS ========== */
-.details {
-  display: none;
-  margin-top: 14px;
-  border-top: 1px dashed rgba(255,255,255,.3);
-  padding-top: 12px;
-  font-size: 14px;
-}
-
-.details.open {
-  display: block;
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  padding: 6px 0;
-}
-
-/* ========== IMAGE MODAL ========== */
-#imageModal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.85);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-}
-
-#imageModal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 20px;
-}
-
-/* ========== JURY ========== */
-.jury {
-  padding: 50px 16px 60px;
-  text-align: center;
-}
-
-.jury-card {
-  max-width: 420px;
-  margin: auto;
-  padding: 26px;
-  border-radius: 26px;
-  background: var(--card-dark);
-  backdrop-filter: blur(18px);
-}
-
-.jury-card img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  margin-bottom: 12px;
-}
-
-.thanks {
-  max-width: 520px;
-  margin: 26px auto 0;
-  opacity: .8;
-}
+.thanks{max-width:520px;margin:26px auto 0;opacity:.85}
