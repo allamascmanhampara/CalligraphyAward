@@ -1,20 +1,19 @@
-:root {
-  --bg-dark:#050505;
-  --card-dark:rgba(255,255,255,.08);
-  --text-dark:#f5f5f5;
+:root{
+  --bg:#050505;
+  --card:rgba(255,255,255,.08);
   --gold:#facc15;
   --accent:#22d3ee;
+  --text:#f5f5f5;
 }
 
 *{box-sizing:border-box}
 body{
   margin:0;
   font-family:Inter,system-ui,sans-serif;
-  background:radial-gradient(circle at top,#141414,var(--bg-dark));
-  color:var(--text-dark);
+  background:radial-gradient(circle at top,#141414,var(--bg));
+  color:var(--text);
 }
 
-/* Views */
 .view{display:none;min-height:100vh}
 .view.active{display:flex;flex-direction:column}
 
@@ -22,42 +21,27 @@ body{
 #landing{justify-content:center;align-items:center;padding:24px}
 .glass-card{
   max-width:420px;
-  width:100%;
   padding:40px 32px;
   border-radius:30px;
   background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.04));
-  backdrop-filter:blur(22px);
   text-align:center;
 }
 .logo{width:150px;margin-bottom:26px}
 h1{font-size:36px;font-weight:800}
 .subtitle{opacity:.8;margin:14px 0 28px}
-.cta{
-  width:100%;
-  padding:16px;
-  border-radius:18px;
-  border:none;
-  font-weight:600;
-  cursor:pointer;
-}
+.cta{padding:16px;border-radius:18px;border:none;cursor:pointer}
 
 /* Results */
 #results{padding:20px}
 .results-header{text-align:center;margin-bottom:22px}
 .tabs{display:flex;justify-content:center;gap:12px;margin-top:14px}
-.tab{
-  padding:10px 18px;
-  border-radius:999px;
-  border:none;
-  cursor:pointer;
-  background:rgba(255,255,255,.14);
-}
+.tab{padding:10px 18px;border-radius:999px;border:none;cursor:pointer}
 .tab.active{background:var(--gold);color:#000}
 
 /* Cards */
 #cards{max-width:900px;margin:auto}
 .card{
-  background:var(--card-dark);
+  background:var(--card);
   border-radius:24px;
   padding:18px;
   margin-bottom:22px;
@@ -66,32 +50,37 @@ h1{font-size:36px;font-weight:800}
   border:2px solid var(--gold);
   box-shadow:0 0 30px rgba(250,204,21,.6);
 }
+
 .top{display:flex;justify-content:space-between;align-items:center}
 .name{font-size:20px;font-weight:700}
 .score{font-size:26px;font-weight:800;color:var(--accent)}
 .badge{font-size:13px;opacity:.85}
 
+/* IMAGE — THIS WAS MISSING */
 .artwork img{
   width:100%;
   border-radius:18px;
   margin:14px 0;
+  display:block;
 }
 
 /* Details */
 button.view{
-  padding:12px 16px;
+  width:100%;
+  padding:12px;
   border-radius:14px;
   border:none;
-  cursor:pointer;
+  font-weight:700;
   background:linear-gradient(135deg,#22d3ee,#38bdf8);
   color:#020617;
-  font-weight:700;
+  cursor:pointer;
 }
+
 .details{
   display:none;
   margin-top:14px;
-  border-top:1px dashed rgba(255,255,255,.3);
   padding-top:12px;
+  border-top:1px dashed rgba(255,255,255,.3);
 }
 .details.open{display:block}
 
@@ -102,13 +91,13 @@ button.view{
 .jury-note{line-height:1.6}
 
 /* Jury */
-.jury{padding:50px 16px;text-align:center}
+.jury{text-align:center;padding:50px 16px}
 .jury-card{
   max-width:420px;
   margin:auto;
   padding:26px;
   border-radius:26px;
-  background:var(--card-dark);
+  background:var(--card);
 }
 .jury-card img{
   width:90px;height:90px;border-radius:50%;margin-bottom:12px
