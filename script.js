@@ -64,31 +64,57 @@ const cards = document.getElementById("cards");
 
 function render(filter) {
   cards.innerHTML = "";
-  data.filter(d=>filter==="all"||d.w).forEach(d=>{
-    const el = document.createElement("div");
-    el.className = "card"+(d.w?" winner":"");
-    el.innerHTML = `
-      <div class="top">
-        <div>
-          <div class="entry">Entry ${d.e}</div>
-          ${d.a?`<div class="badge">${d.a}</div>`:""}
+
+  data
+    .filter(d => filter === "all" || d.w)
+    .forEach(d => {
+      const el = document.createElement("div");
+      el.className = "card" + (d.w ? " winner" : "");
+
+      el.innerHTML = `
+        <div class="top">
+          <div>
+            <div class="entry">Entry ${d.e}</div>
+            ${d.a ? `<div class="badge">${d.a}</div>` : ""}
+          </div>
+          <div class="score">${d.t}</div>
         </div>
-        <div class="score">${d.t}</div>
-      </div>
 
-      <div class="artwork">
-        <img src="${d.e}.png" onclick="expandImage('${d.e}.png')">
-      </div>
+        <div class="artwork">
+          <img src="${d.e}.png" alt="Entry ${d.e}">
+        </div>
 
-      <button class="view">View detailed evaluation</button>
+        <button class="view">View detailed evaluation</button>
 
-      <div class="details">
-        ${criteria.map((c,i)=>`
-          <div class="row"><span>${c}</span><span>${d.s[i]}/10</span></div>
-        `).join("")}
-        <p><strong>Jury Note:</strong> ${d.c}</p>
-      </div>
-    `;
+        <div class="details">
+          <table class="marks-table">
+            ${criteria.map((c,i)=>`
+              <tr>
+                <td>${c}</td>
+                <td>${d.s[i]} / 10</td>
+              </tr>
+            `).join("")}
+          </table>
+
+          <p class="jury-note">
+            <strong>Jury Note:</strong> ${d.c}
+          </p>
+        </div>
+      `;
+
+      const btn = el.querySelector(".view");
+      const details = el.querySelector(".details");
+
+      btn.onclick = () => {
+        const open = details.classList.toggle("open");
+        btn.textContent = open
+          ? "Hide detailed evaluation"
+          : "View detailed evaluation";
+      };
+
+      cards.appendChild(el);
+    });
+}
 
     const btn = el.querySelector(".view");
     const details = el.querySelector(".details");
