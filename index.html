@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Nuqtah Award 2026 · Allama S.C.</title>
 
 <link rel="stylesheet" href="style.css">
@@ -11,47 +12,83 @@
 
 <body>
 
-<!-- LANDING VIEW -->
+<!-- ======================
+     LANDING VIEW
+====================== -->
 <section id="landing" class="view active">
   <div class="glass-card">
-    <img src="allama-logo.png" class="logo" alt="Allama S.C.">
-    <h1>Nuqtah Award<br>2026</h1>
-    <p>Allama S.C.<br>Arabic Calligraphy Competition</p>
-    <button class="view">View detailed evaluation</button>
+
+    <img src="allama-logo.png" alt="Allama S.C. Logo" class="logo">
+
+    <h1>
+      Nuqtah Award<br>
+      2026
+    </h1>
+
+    <p class="subtitle">
+      Allama S.C.<br>
+      Arabic Calligraphy Competition
+    </p>
+
+    <button class="cta" onclick="openResults()">
+      View Results
+    </button>
+
   </div>
 </section>
 
-<!-- RESULTS VIEW -->
+<!-- ======================
+     RESULTS VIEW
+====================== -->
 <section id="results" class="view">
+
+  <!-- HEADER -->
   <header class="results-header">
     <h2>Competition Results</h2>
     <p>Official Jury Evaluation</p>
 
+    <!-- TABS -->
     <div class="tabs">
-      <button class="tab active" onclick="switchTab('winners')">🏆 Winners</button>
-      <button class="tab" onclick="switchTab('all')">📋 Full List</button>
+      <button class="tab active" onclick="switchTab('winners')">
+        🏆 Winners
+      </button>
+      <button class="tab" onclick="switchTab('all')">
+        📋 Full List
+      </button>
     </div>
   </header>
 
+  <!-- RESULT CARDS (JS FILLS THIS) -->
   <main id="cards"></main>
 
+  <!-- ======================
+       JURY SECTION
+  ====================== -->
   <section class="jury">
+
     <div class="jury-card">
-      <img src="jury.jpg" alt="Jury">
+      <img src="jury.jpg" alt="Chief Jury">
+
       <h3>Khaleelullah Chemnad</h3>
       <span>Chief Jury · Arabic Calligraphy</span>
+
       <p>
-        Each artwork reflected sincerity, discipline, and artistic devotion.
-        The diversity of approaches made the Nuqtah Award 2026 a meaningful
-        celebration of calligraphy.
+        Each artwork submitted to the Nuqtah Award 2026 reflected sincere effort,
+        devotion to form, and a growing understanding of classical principles.
+        While approaches and levels of refinement varied, the collective spirit
+        of discipline and creativity made this competition both meaningful and
+        inspiring.
       </p>
     </div>
 
     <p class="thanks">
-      Allama S.C. thanks all participants and supporters for making
-      the Nuqtah Award 2026 a memorable success.
+      Allama S.C. extends heartfelt gratitude to all participants, coordinators,
+      and supporters who contributed to the success of the
+      <strong>Nuqtah Award 2026</strong>.
     </p>
+
   </section>
+
 </section>
 
 <script src="script.js"></script>
