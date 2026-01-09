@@ -3,33 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <title>Arabic Calligraphy Jury Results</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- LANDING -->
-  <section class="landing">
-    <div class="landing-content">
-      <h1>Arabic Calligraphy Evaluation</h1>
-      <p>
-        Official jury assessment of submitted works, presented with transparency,
-        structure, and academic integrity.
-      </p>
-      <button id="viewResultsBtn">View Results</button>
-    </div>
-  </section>
+<!-- LANDING -->
+<section class="landing">
+  <div class="landing-card">
+    <h1>Arabic Calligraphy Awards</h1>
+    <p>
+      Official jury evaluation of submitted works, presented with
+      artistic depth, transparency, and professional integrity.
+    </p>
+    <button id="viewResultsBtn">View Results</button>
+  </div>
+</section>
 
-  <!-- RESULTS -->
-  <main id="results" class="container hidden">
-    <header class="page-header">
-      <h2>Evaluation Results (Entries A–N)</h2>
-      <p>Entries are listed in submission order with detailed jury feedback.</p>
-    </header>
+<!-- RESULTS -->
+<main id="results" class="results hidden">
+  <header class="results-header">
+    <h2>Evaluation Results</h2>
+    <p>Entries A–N listed in submission order</p>
+  </header>
 
-    <section id="cards" class="cards-grid"></section>
-  </main>
+  <section id="cards" class="cards"></section>
+</main>
 
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
