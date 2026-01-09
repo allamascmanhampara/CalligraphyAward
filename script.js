@@ -6,7 +6,7 @@ const participants = [
         total: 46,
         scores: [9, 10, 9, 9, 9],
         rank: 1,
-        award: 'First Place',
+        award: 'I PLACE',
         image: 'B.png',
         juryNote: 'Exceptional circular composition with intricate floral-calligraphic integration. The symmetry is masterful, with each petal containing beautifully formed script. The aged parchment effect and border detailing show superior craftsmanship. This piece demonstrates the highest level of technical skill and artistic vision. Your work stands as a testament to dedicated practice and deep understanding of classical Islamic calligraphic traditions.'
     },
@@ -16,7 +16,7 @@ const participants = [
         total: 42,
         scores: [9, 9, 8, 8, 8],
         rank: 2,
-        award: 'Second Place',
+        award: 'II PLACE',
         image: 'C.png',
         juryNote: 'Stunning circular mandala design with perfect radial symmetry. The integration of multiple calligraphic phrases into a cohesive geometric pattern is remarkable. The balance between density and readability is expertly handled, creating a mesmerizing visual flow. Your ability to merge complex geometric principles with elegant script work showcases both mathematical precision and artistic sensibility.'
     },
@@ -26,7 +26,7 @@ const participants = [
         total: 42,
         scores: [9, 8, 8, 8, 9],
         rank: 2,
-        award: 'Second Place',
+        award: 'II Place',
         image: 'A.png',
         juryNote: 'Beautiful decorative border framing with elegant central calligraphy. The ornate frame shows intricate detail work, and the contrast between the decorated border and the clear central text creates excellent visual hierarchy. Your dedication to traditional ornamentation is commendable, and the balance achieved between embellishment and clarity demonstrates mature artistic judgment.'
     },
@@ -36,7 +36,7 @@ const participants = [
         total: 40,
         scores: [8, 8, 8, 8, 8],
         rank: 3,
-        award: 'Third Place',
+        award: 'III Place',
         image: 'E.png',
         juryNote: 'Bold vertical composition with strong visual impact. The elongated letterforms create dramatic presence and excellent use of negative space. Your modern aesthetic while maintaining traditional calligraphic integrity is impressive. The confidence in your strokes and the commanding presence of this piece demonstrate a unique contemporary voice that respects classical foundations while pushing boundaries.'
     },
@@ -70,10 +70,10 @@ const participants = [
     },
     {
         id: 'I',
-        name: 'Fathima',
-        total: 36,
-        scores: [7, 7, 7, 8, 7],
-        rank: 8,
+        name: 'Fathimath Jafna',
+        total: 33,
+        scores: [7, 6, 6, 7, 7],
+        rank: 11,
         image: 'I.png',
         juryNote: 'Your work displays good technical competence and thoughtful composition. The letterforms show careful construction and the overall presentation is clean and professional. Continue to develop your unique stylistic voice by studying diverse calligraphic traditions. Focus on building greater expressiveness while maintaining your evident technical discipline.'
     },
@@ -115,10 +115,10 @@ const participants = [
     },
     {
         id: 'D',
-        name: 'Fathimath Jafna',
-        total: 33,
-        scores: [7, 6, 6, 7, 7],
-        rank: 11,
+        name: 'Fathima',
+        total: 36,
+        scores: [7, 7, 7, 8, 7],
+        rank: 8,
         image: 'D.png',
         juryNote: 'A solid composition showing good understanding of fundamental calligraphic principles. Your letterforms demonstrate careful attention and the overall layout is well-considered. Continue to work on refining stroke consistency and exploring more dynamic spacing arrangements. With continued practice, your natural sense of balance will develop into even more compelling compositions.'
     },
@@ -178,7 +178,7 @@ function renderWinners() {
     winnersGrid.innerHTML = winners.map(participant => `
         <div class="winner-card ${getRankClass(participant.rank)}">
             <div class="award-badge">
-                ${getTrophySVG(participant.rank)}
+                ${getMedalSVG(participant.rank)}
                 <div class="award-text">${participant.award}</div>
             </div>
             <img src="${participant.image}" alt="${participant.name}" class="winner-image">
@@ -267,7 +267,7 @@ function getRankClass(rank) {
     return '';
 }
 
-function getTrophySVG(rank) {
+function getMedalSVG(rank) {
     const colors = {
         1: '#FFD700',
         2: '#C0C0C0',
@@ -277,9 +277,9 @@ function getTrophySVG(rank) {
     const color = colors[rank] || '#999';
     
     return `
-        <svg class="trophy-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="Medal-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
-                <linearGradient id="trophy-gradient-${rank}" x1="0%" y1="0%" x2="0%" y2="100%">
+                <linearGradient id="Medal-gradient-${rank}" x1="0%" y1="0%" x2="0%" y2="100%">
                     <stop offset="0%" style="stop-color:${color};stop-opacity:1" />
                     <stop offset="100%" style="stop-color:${adjustBrightness(color, -20)};stop-opacity:1" />
                 </linearGradient>
@@ -292,13 +292,13 @@ function getTrophySVG(rank) {
                 </filter>
             </defs>
             <path d="M6 9C6 6.79086 7.79086 5 10 5H14C16.2091 5 18 6.79086 18 9V10C18 12.2091 16.2091 14 14 14H10C7.79086 14 6 12.2091 6 10V9Z" 
-                  fill="url(#trophy-gradient-${rank})" filter="url(#glow-${rank})"/>
+                  fill="url(#Medal-gradient-${rank})" filter="url(#glow-${rank})"/>
             <path d="M12 14V17" stroke="${color}" stroke-width="2" stroke-linecap="round" filter="url(#glow-${rank})"/>
             <path d="M9 19H15" stroke="${color}" stroke-width="2" stroke-linecap="round" filter="url(#glow-${rank})"/>
             <path d="M5 7H6V9C6 9.55228 5.55228 10 5 10H4C3.44772 10 3 9.55228 3 9V8C3 7.44772 3.44772 7 4 7H5Z" 
-                  fill="url(#trophy-gradient-${rank})" filter="url(#glow-${rank})"/>
+                  fill="url(#Medal-gradient-${rank})" filter="url(#glow-${rank})"/>
             <path d="M19 7H18V9C18 9.55228 18.4477 10 19 10H20C20.5523 10 21 9.55228 21 9V8C21 7.44772 20.5523 7 20 7H19Z" 
-                  fill="url(#trophy-gradient-${rank})" filter="url(#glow-${rank})"/>
+                  fill="url(#Medal-gradient-${rank})" filter="url(#glow-${rank})"/>
             <circle cx="12" cy="8" r="1.5" fill="white" opacity="0.6"/>
         </svg>
     `;
